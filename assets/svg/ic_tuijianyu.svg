@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.960784 0 0 0 0 0.333333 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-140.000000, -537.000000)" id="编组-19">
+            <g transform="translate(16.000000, 472.000000)">
+                <g id="编组-15" transform="translate(120.000000, 12.000000)">
+                    <g id="推荐" transform="translate(0.000000, 49.000000)" filter="url(#filter-1)">
+                        <g transform="translate(4.000000, 4.000000)" id="ic/推荐语" fill-rule="nonzero">
+                            <rect id="矩形" opacity="0.100000001" x="0" y="0" width="16" height="16"></rect>
+                            <path d="M8,0 C11.3137085,0 14,2.6862915 14,6 C14,9.3137085 11.3137085,12 8,12 C4.6862915,12 2,9.3137085 2,6 C2,2.6862915 4.6862915,0 8,0 Z M8,1.5 C5.51471863,1.5 3.5,3.51471863 3.5,6 C3.5,8.48528137 5.51471863,10.5 8,10.5 C10.4852814,10.5 12.5,8.48528137 12.5,6 C12.5,3.51471863 10.4852814,1.5 8,1.5 Z" id="椭圆形" fill="#979797"></path>
+                            <path d="M8,4 C9.1045695,4 10,4.8954305 10,6 C10,7.1045695 9.1045695,8 8,8 C6.8954305,8 6,7.1045695 6,6 C6,4.8954305 6.8954305,4 8,4 Z M8,5.5 C7.72385763,5.5 7.5,5.72385763 7.5,6 C7.5,6.27614237 7.72385763,6.5 8,6.5 C8.27614237,6.5 8.5,6.27614237 8.5,6 C8.5,5.72385763 8.27614237,5.5 8,5.5 Z" id="椭圆形备份-7" fill="#979797"></path>
+                            <path d="M12,10 L12,16 L8,15 L4,16 L4,10 L5.5,10.563 L5.5,14.078 L8,13.4538354 L10.5,14.078 L10.5,10.563 L12,10 Z" id="矩形" fill="#979797"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
