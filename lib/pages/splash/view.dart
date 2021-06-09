@@ -1,8 +1,8 @@
-import 'package:demo_app/common/config/config.dart';
-import 'package:demo_app/common/local_router/router_map.dart';
-import 'package:demo_app/static/img.dart';
-import 'package:demo_app/utils/screen.dart';
-import 'package:demo_app/widgets/common/count_timer_builder.dart';
+import 'package:yyba_app/common/config/config.dart';
+import 'package:yyba_app/common/local_router/router_map.dart';
+import 'package:yyba_app/static/img.dart';
+import 'package:yyba_app/utils/screen.dart';
+import 'package:yyba_app/widgets/common/count_timer_builder.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatelessWidget {
@@ -26,7 +26,7 @@ class Splash extends StatelessWidget {
 
           /// 跳过
           CountTimer(
-            3,
+            1,
             timerBuilder: (context,
                 {String? day,
                 String? hour,

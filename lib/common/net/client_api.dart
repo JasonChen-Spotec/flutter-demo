@@ -1,4 +1,4 @@
-import 'package:demo_app/model/services_model.dart';
+import 'package:yyba_app/model/services_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 part 'client_api.g.dart';

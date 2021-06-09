@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:demo_app/utils/log.dart';
+import 'package:yyba_app/utils/log.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
 // import 'package:install_plugin/install_plugin.dart';

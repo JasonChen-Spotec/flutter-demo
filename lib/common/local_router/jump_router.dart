@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:demo_app/common/config/config.dart';
+import 'package:yyba_app/common/config/config.dart';
 import 'package:flutter/material.dart';
 
 class RouterCtrl {

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:demo_app/utils/log.dart';
-import 'package:demo_app/utils/text_util.dart';
-import 'package:demo_app/utils/toast_util.dart';
+import 'package:yyba_app/utils/log.dart';
+import 'package:yyba_app/utils/text_util.dart';
+import 'package:yyba_app/utils/toast_util.dart';
 import 'package:dio/dio.dart';
 
 import 'api_exception.dart';

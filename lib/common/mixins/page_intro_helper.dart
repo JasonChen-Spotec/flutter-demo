@@ -1,4 +1,4 @@
-import 'package:demo_app/utils/light_model.dart';
+import 'package:yyba_app/utils/light_model.dart';
 
 /// 页面引导提示帮助类
 mixin PageIntroHelper {

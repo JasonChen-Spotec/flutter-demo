@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="消息" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="信息" transform="translate(-222.000000, -949.000000)">
+            <g id="iPhone-X/Bars/Tab-Bar/4-Items" transform="translate(0.000000, 943.000000)">
+                <g id="Item-3" transform="translate(210.000000, 4.000000)">
+                    <g id="编组" transform="translate(12.000000, 2.500000)">
+                        <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+                        <path d="M5,4 L19,4 C20.6568542,4 22,5.34314575 22,7 L22,17 C22,18.6568542 20.6568542,20 19,20 L7,20 L7,20 L3.51449576,22.0913025 C3.04091549,22.3754507 2.42665523,22.2218856 2.14250707,21.7483054 C2.04925783,21.59289 2,21.4150536 2,21.2338096 L2,7 C2,5.34314575 3.34314575,4 5,4 Z" id="矩形" fill="#2828FF"></path>
+                        <rect id="矩形" fill="#FFFFFF" x="7" y="11" width="4" height="1.5" rx="0.75"></rect>
+                        <rect id="矩形备份" fill="#FFFFFF" x="13" y="11" width="4" height="1.5" rx="0.75"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

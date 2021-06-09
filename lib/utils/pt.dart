@@ -9,7 +9,6 @@ class Pt {
   static double get pth40 => screen.getWidth(40);
   static double get pth80 => screen.getWidth(80);
   static double get pth500 => screen.getWidth(500);
-
   static double get pt0 => screen.getWidth(0);
   static double get pt0_6 => screen.getWidth(0.6);
   static double get pt1 => screen.getWidth(1);
@@ -138,6 +137,7 @@ class Pt {
   static double get pt185 => screen.getWidth(185);
   static double get pt190 => screen.getWidth(190);
   static double get pt192 => screen.getWidth(192);
+  static double get pt195 => screen.getWidth(195);
   static double get pt200 => screen.getWidth(200);
   static double get pt205 => screen.getWidth(205);
   static double get pt208 => screen.getWidth(208);
@@ -178,6 +178,7 @@ class Pt {
   static double get pt320 => screen.getWidth(320);
   static double get pt322 => screen.getWidth(322);
   static double get pt340 => screen.getWidth(340);
+  static double get pt343 => screen.getWidth(343);
   static double get pt356 => screen.getWidth(356);
   static double get pt360 => screen.getWidth(360);
   static double get pt350 => screen.getWidth(350);

@@ -1,7 +1,7 @@
-import 'package:demo_app/pages/splash/view.dart';
-import 'package:demo_app/static/app_colors.dart';
-import 'package:demo_app/utils/pt.dart';
-import 'package:demo_app/utils/log.dart';
+import 'package:yyba_app/pages/splash/view.dart';
+import 'package:yyba_app/static/app_colors.dart';
+import 'package:yyba_app/utils/pt.dart';
+import 'package:yyba_app/utils/log.dart';
 import 'package:flutter/cupertino.dart' hide Page;
 import 'package:flutter/material.dart' hide Page;
 import 'package:provider/provider.dart';
@@ -60,48 +60,34 @@ class _InitedAppState extends State<InitedApp>
           create: (ctx) => GlobalController(),
         ),
       ],
-      child: DefaultTextStyle(
-        style: TextStyle(fontSize: Pt.pt20, color: Colors.teal),
-        child: MaterialApp(
-          navigatorKey: Config.navigatorKey,
-          theme: ThemeData(
-            dialogTheme: DialogTheme(elevation: 0),
-            scaffoldBackgroundColor: AppColors.backgroundColor,
-            backgroundColor: AppColors.backgroundColor,
-            tabBarTheme: TabBarTheme(
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white,
-              labelStyle: TextStyle(color: Colors.white, fontSize: Pt.pt16),
-              unselectedLabelStyle:
-                  TextStyle(color: Colors.white, fontSize: Pt.pt16),
-            ),
-            textTheme: TextTheme(headline1: TextStyle()),
-            unselectedWidgetColor: Color(0xffD8D8D8),
-            appBarTheme: AppBarTheme(
-              iconTheme: IconThemeData(color: AppColors.appBarColor),
-              elevation: 0,
-              color: Colors.black,
-              textTheme: TextTheme(
-                headline6: TextStyle(color: Colors.white, fontSize: Pt.pt18),
-              ),
+      child: MaterialApp(
+        navigatorKey: Config.navigatorKey,
+        highContrastTheme: ThemeData(
+          dialogTheme: DialogTheme(elevation: 0),
+          scaffoldBackgroundColor: Colors.red,
+          backgroundColor: AppColors.backgroundColor,
+          textTheme: TextTheme(headline1: TextStyle()),
+          appBarTheme: AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+            elevation: 0,
+            color: Colors.black,
+            textTheme: TextTheme(
+              headline6: TextStyle(color: Colors.white, fontSize: Pt.pt18),
             ),
           ),
-
-          debugShowCheckedModeBanner: true,
-          //关掉模拟器右上角debug图标
-          title: 'APP_NAME',
-          home: Material(
-            child: Splash(),
-          ),
-          navigatorObservers: [CustomRouteObserver()],
-          routes: routerMap,
-          onGenerateRoute: (RouteSettings settings) {
-            String? routeName = settings.name;
-            if (routerMap[routeName] == null) {
-              l.e('router error', '没有匹配到路由组件');
-            }
-          },
         ),
+
+        debugShowCheckedModeBanner: true,
+        //关掉模拟器右上角debug图标
+        home: Splash(),
+        navigatorObservers: [CustomRouteObserver()],
+        routes: routerMap,
+        onGenerateRoute: (RouteSettings settings) {
+          String? routeName = settings.name;
+          if (routerMap[routeName] == null) {
+            l.e('router error', '没有匹配到路由组件');
+          }
+        },
       ),
     );
   }

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:demo_app/utils/light_model.dart';
-import 'package:demo_app/utils/log.dart';
-import 'package:demo_app/utils/screen.dart';
+import 'package:yyba_app/utils/light_model.dart';
+import 'package:yyba_app/utils/log.dart';
+import 'package:yyba_app/utils/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

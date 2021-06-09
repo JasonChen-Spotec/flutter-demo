@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:demo_app/common/config/config.dart';
-import 'package:demo_app/utils/app_util.dart';
-import 'package:demo_app/utils/dio_cli.dart';
-import 'package:demo_app/utils/light_model.dart';
-import 'package:demo_app/utils/text_util.dart';
+import 'package:yyba_app/common/config/config.dart';
+import 'package:yyba_app/utils/app_util.dart';
+import 'package:yyba_app/utils/dio_cli.dart';
+import 'package:yyba_app/utils/light_model.dart';
+import 'package:yyba_app/utils/text_util.dart';
 import 'package:dio/dio.dart';
 import 'package:package_info/package_info.dart';
 import 'client_api.dart';

@@ -1,5 +1,5 @@
-import 'package:demo_app/common/config/config.dart';
-import 'package:demo_app/utils/log.dart';
+import 'package:yyba_app/common/config/config.dart';
+import 'package:yyba_app/utils/log.dart';
 import 'package:dio/dio.dart';
 
 /// 网络日志拦截器
