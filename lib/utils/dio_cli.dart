@@ -10,7 +10,7 @@ final _defaultOptions = BaseOptions(
   receiveTimeout: 15000,
   // dio 原生会加上 request header:accept-encoding gzip，导致部分请求失败
   // headers: {HttpHeaders.acceptEncodingHeader: "*"},
-  validateStatus: (int status) => status < 600,
+  validateStatus: (int? status) => status! < 600,
 );
 
 /// 创建一个支持http/http2和兼容tls证书错误的dio层

@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:demo_app/common/config/config.dart';
-import 'package:demo_app/common/local_router/jump_router.dart';
 import 'package:demo_app/common/local_router/router_map.dart';
 import 'package:demo_app/static/img.dart';
 import 'package:demo_app/utils/screen.dart';

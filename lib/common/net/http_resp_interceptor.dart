@@ -15,14 +15,15 @@ class HttpRespInterceptor extends InterceptorsWrapper {
   static const String TAG = "HttpRespInterceptor";
   HttpRespInterceptor();
   @override
-  Future onResponse(Response response) async {
+  Future onResponse(
+      Response response, ResponseInterceptorHandler handler) async {
     return handleResponse(response);
   }
 
   @override
-  onError(DioError err) async {
+  onError(DioError err, ErrorInterceptorHandler handler) async {
     l.e("resp_interceptor",
-        'onError()...path:${err.request.path} url:${err.request.uri.toString()} err:${err.toString()}',
+        'onError()...path:${err.requestOptions.path} url:${err.requestOptions.uri.toString()} err:${err.toString()}',
         saveFile: true);
     return Future.value(err);
   }

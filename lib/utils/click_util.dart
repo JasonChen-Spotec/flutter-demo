@@ -5,10 +5,7 @@ class ClickUtil {
   ///快速点击
   static bool isFastClick() {
     DateTime dateTime = DateTime.now();
-    if (lastClickTime == null) {
-      lastClickTime = dateTime;
-      return false;
-    }
+
     if (dateTime.difference(lastClickTime) < Duration(milliseconds: 500)) {
       lastClickTime = dateTime;
       return true;

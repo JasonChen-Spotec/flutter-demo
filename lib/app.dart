@@ -1,17 +1,13 @@
-import 'dart:developer';
-
-import 'package:demo_app/pages/home/view.dart';
 import 'package:demo_app/pages/splash/view.dart';
 import 'package:demo_app/static/app_colors.dart';
 import 'package:demo_app/utils/pt.dart';
 import 'package:demo_app/utils/log.dart';
-import 'package:demo_app/utils/screen.dart';
 import 'package:flutter/cupertino.dart' hide Page;
 import 'package:flutter/material.dart' hide Page;
 import 'package:provider/provider.dart';
 
 import 'common/config/config.dart';
-import 'common/provider/msg_count_model.dart';
+import 'common/provider/global_controller.dart';
 import './common/local_router/router_map.dart';
 
 class InitedApp extends StatefulWidget {

@@ -12,7 +12,9 @@ final l = _Log._();
 /// 日志工具类，
 class _Log {
   // // 获取文档目录的路径
+  // ignore: close_sinks
   late IOSink fileSink;
+  // ignore: close_sinks
   late IOSink crashSink;
 
   bool enablePrintLog = true;
@@ -107,7 +109,7 @@ class _Log {
   }
 
   void writeCrash(dynamic message, {dynamic error, StackTrace? stackTrace}) {
-    var newMsg = printer.stringifyMessage(message);
+    // var newMsg = printer.stringifyMessage(message);
     // crashSink.write('$newMsg\n error:$error\n stack:$stackTrace\n');
   }
 

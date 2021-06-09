@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:demo_app/utils/log.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
-import 'package:install_plugin/install_plugin.dart';
+// import 'package:install_plugin/install_plugin.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
 
@@ -59,7 +59,7 @@ installApp(String filePath) async {
   if (await Permission.storage.request().isGranted) {
     DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
     deviceInfoPlugin.androidInfo.then((androidInfo) {
-      InstallPlugin.installApk(filePath, androidInfo.id);
+      // InstallPlugin.installApk(filePath, androidInfo.id);
     });
   }
 }

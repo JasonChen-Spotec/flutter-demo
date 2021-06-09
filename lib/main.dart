@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:demo_app/utils/light_model.dart';
 import 'package:demo_app/utils/log.dart';

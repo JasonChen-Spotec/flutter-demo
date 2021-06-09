@@ -7,31 +7,37 @@ part of 'client_api.dart';
 // **************************************************************************
 
 class _ClientApi implements ClientApi {
-  _ClientApi(this._dio, {this.baseUrl}) {
-    ArgumentError.checkNotNull(_dio, '_dio');
-  }
+  _ClientApi(this._dio, {this.baseUrl});
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  getInviteList(pageNum, pageSize) async {
-    ArgumentError.checkNotNull(pageNum, 'pageNum');
-    ArgumentError.checkNotNull(pageSize, 'pageSize');
+  Future<ServicesModel> getInviteList(pageNum, pageSize) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = {'pageNum': pageNum, 'pageSize': pageSize};
-    final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/user/product/list',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
-    final value = ServicesModel.fromJson(_result.data);
-    return Future.value(value);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ServicesModel>(
+            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+                .compose(_dio.options, '/user/product/list',
+                    data: _data, queryParameters: queryParameters)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ServicesModel.fromJson(_result.data!);
+    return value;
+  }
+
+  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
   }
 }

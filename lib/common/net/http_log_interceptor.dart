@@ -8,7 +8,7 @@ class HttpLogInterceptor extends InterceptorsWrapper {
   HttpLogInterceptor();
 
   @override
-  onRequest(RequestOptions options) {
+  onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     l.d(TAG, '################# BEGIN REQUEST #####################\n',
         saveFile: false);
     l.d(TAG,
@@ -26,21 +26,19 @@ class HttpLogInterceptor extends InterceptorsWrapper {
     l.d(TAG, 'header:${options.headers.toString()}\n', saveFile: false);
     l.d(TAG, '################# END REQUEST #####################\n',
         saveFile: false);
-
-    return Future.value(options);
   }
 
   @override
-  onResponse(Response response) {
+  onResponse(Response response, ResponseInterceptorHandler handler) {
     l.d(TAG, '################# BEGIN RESPONSE #####################\n',
         saveFile: false);
-    l.d(TAG, 'url:${response.request.uri}  path:${response.request.path}\n',
+    l.d(TAG,
+        'url:${response.requestOptions.uri}  path:${response.requestOptions.path}\n',
         saveFile: false);
     if (Config.DEBUG)
       l.d(TAG, 'begin resp: ${response.toString()}\n', saveFile: false);
     l.d(TAG, '################# END RESPONSE #####################\n',
         saveFile: false);
-    return Future.value(response); // continue
   }
 
   // @override

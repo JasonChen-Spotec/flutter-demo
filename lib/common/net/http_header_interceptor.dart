@@ -9,7 +9,7 @@ class HttpHeaderInterceptor extends InterceptorsWrapper {
   HttpHeaderInterceptor();
 
   @override
-  onRequest(RequestOptions options) async {
+  onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     var token = await netManager.getToken();
     options.headers["Authorization"] = token;
     // l.d('http_log', 'token:$token');
