@@ -39,17 +39,12 @@ class _InitedAppState extends State<InitedApp>
         break;
       case AppLifecycleState.resumed: // 应用程序可见，前台
         l.i(tag, "app 恢复了resumed");
-        _recoveryVideo();
         break;
       case AppLifecycleState.paused:
         l.i(tag, "app 暂停了paused");
         break;
       default:
     }
-  }
-
-  _recoveryVideo() async {
-    // autoPlayModel?.refreshPlayer();
   }
 
   @override
@@ -62,11 +57,11 @@ class _InitedAppState extends State<InitedApp>
       ],
       child: MaterialApp(
         navigatorKey: Config.navigatorKey,
-        highContrastTheme: ThemeData(
+        theme: ThemeData(
           dialogTheme: DialogTheme(elevation: 0),
-          scaffoldBackgroundColor: Colors.red,
+          scaffoldBackgroundColor: AppColors.backgroundColor,
+          splashColor: Colors.transparent,
           backgroundColor: AppColors.backgroundColor,
-          textTheme: TextTheme(headline1: TextStyle()),
           appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(color: Colors.black),
             elevation: 0,

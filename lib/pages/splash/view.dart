@@ -1,4 +1,5 @@
 import 'package:yyba_app/common/config/config.dart';
+import 'package:yyba_app/common/local_router/jump_router.dart';
 import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/static/img.dart';
 import 'package:yyba_app/utils/screen.dart';
@@ -38,7 +39,7 @@ class Splash extends StatelessWidget {
                 top: 30,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(Config.appContext).pushNamed(PAGE_HOME);
+                    RouterCtrl.replace(PAGE_HOME);
                   },
                   child: Container(
                     padding: EdgeInsets.all(20),
