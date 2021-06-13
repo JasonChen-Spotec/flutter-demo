@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
-/// 混杂工具类，包括系统向光的功能，震动反馈
+/// 原生交互常用方法封装
 class MiscUtil {
   static Future<void> vibrate() async {
     return await HapticFeedback.lightImpact();

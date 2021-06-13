@@ -1,6 +1,6 @@
 import 'dart:convert';
-import './array_util.dart';
 import './text_util.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:mmkv_flutter/mmkv_flutter.dart';
 
 /// 轻量级别存储模型(kv键值对)内部包含文件和内存缓存
@@ -79,7 +79,7 @@ class _LightModel {
     await init();
     if (TextUtil.isEmpty(key)) return false;
     var newKey = '$key';
-    if (ArrayUtil.isEmpty(list))
+    if (list.length == 0)
       return mmkv.setString(newKey, null);
     else {
       var jsonS = json.encode(list);
