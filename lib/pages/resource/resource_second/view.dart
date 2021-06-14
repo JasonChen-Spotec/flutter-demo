@@ -79,7 +79,7 @@ class ResourceSecondPage extends StatelessWidget {
                           children: List.generate(8, (index) {
                             return GestureDetector(
                               onTap: () {
-                                RouterCtrl.push(PAGE_RESOURCE_SECOND);
+                                RouterCtrl.push(PAGE_RESOURCE_THIRD);
                               },
                               child: Container(
                                 child: Column(
