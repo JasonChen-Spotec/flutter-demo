@@ -17,17 +17,11 @@ class ResourceSecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
           commonAppBar('互联网', actions: [
             Container(
               margin: EdgeInsets.only(right: Pt.pt16),
-              width: Pt.pt32,
-              height: Pt.pt32,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(40)),
               child: SvgPicture.asset(
                 AssetsSvg.IC_XIAZAI,
                 color: AppColors.primaryTextColor,

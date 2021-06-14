@@ -23,8 +23,8 @@ Widget commonAppBar(String title,
     ),
     leading: GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(left: 6),
-        padding: EdgeInsets.symmetric(vertical: 14),
+        margin: EdgeInsets.only(left: Pt.pt6),
+        padding: EdgeInsets.symmetric(vertical: Pt.pt14),
         child: SvgPicture.asset(
           AssetsSvg.IC_BACK,
           color: AppColors.primaryTextColor,

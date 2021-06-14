@@ -63,6 +63,7 @@ class ResourcePage extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(height: Pt.pt10),
             Expanded(
               child: CustomScrollTabBarView(
                 otherChild: Column(
@@ -74,7 +75,7 @@ class ResourcePage extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(Pt.pt6),
                       ),
-                      margin: EdgeInsets.only(top: Pt.pt22),
+                      margin: EdgeInsets.only(top: Pt.pt12),
                       padding: EdgeInsets.symmetric(
                           vertical: Pt.pt16, horizontal: Pt.pt16),
                       child: Wrap(
@@ -118,7 +119,7 @@ class ResourcePage extends StatelessWidget {
                     SizedBox(height: Pt.pt24),
                     Container(
                       alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.only(bottom: Pt.pt10),
+                      margin: EdgeInsets.only(bottom: Pt.pt12),
                       child: Text(
                         '为你推荐',
                         style: TextStyle(
@@ -129,10 +130,11 @@ class ResourcePage extends StatelessWidget {
                     ),
                   ],
                 ),
+                padding: EdgeInsets.only(bottom: Pt.pt10),
                 tabs: ['热门', '科技', '数据', '运营', '教育'],
                 tabViewBuilder: (BuildContext _, int index) {
                   return Container(
-                    margin: EdgeInsets.only(top: Pt.pt12),
+                    margin: EdgeInsets.only(top: Pt.pt2),
                     child: ListView.builder(
                         itemCount: 20,
                         itemBuilder: (__, int ii) {

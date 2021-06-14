@@ -10,12 +10,16 @@ class CustomScrollTabBarView extends StatefulWidget {
   final List<String> tabs;
   final Widget Function(BuildContext, int) tabViewBuilder;
   final Widget? otherChild;
+  final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
 
   const CustomScrollTabBarView(
       {Key? key,
       required this.tabs,
       required this.tabViewBuilder,
-      this.otherChild})
+      this.otherChild,
+      this.backgroundColor = AppColors.backgroundColor,
+      this.padding})
       : super(key: key);
 
   @override
@@ -45,16 +49,17 @@ class _CustomScrollTabBarViewState extends State<CustomScrollTabBarView>
           return [
             SliverToBoxAdapter(child: widget.otherChild),
             SliverAppBar(
-              pinned: false,
+              pinned: true,
               floating: true,
               elevation: 0,
               primary: false,
               toolbarHeight: 0,
-              backgroundColor: AppColors.backgroundColor,
+              backgroundColor: widget.backgroundColor,
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(Pt.pt30),
-                child: Align(
-                  alignment: Alignment.centerLeft,
+                preferredSize: Size.fromHeight(Pt.pt35),
+                child: Container(
+                  padding: widget.padding,
+                  alignment: Alignment.topLeft,
                   child: TabBar(
                     controller: tabController,
                     isScrollable: true,
@@ -82,8 +87,9 @@ class _CustomScrollTabBarViewState extends State<CustomScrollTabBarView>
         },
         body: TabBarView(
           controller: tabController,
+          physics: NeverScrollableScrollPhysics(),
           children: List.generate(widget.tabs.length, (index) {
-            return widget.tabViewBuilder(context, index);
+            return Scrollbar(child: widget.tabViewBuilder(context, index));
           }),
         ),
       ),
