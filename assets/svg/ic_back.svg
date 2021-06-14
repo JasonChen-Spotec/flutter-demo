@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.011765 0 0 0 0 0.035294 0 0 0 0 0.098039 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-二级" transform="translate(-16.000000, -56.000000)">
+            <g id="编组-2" transform="translate(16.000000, 56.000000)" filter="url(#filter-1)">
+                <g>
+                    <rect id="矩形" opacity="0.200000003" x="0" y="0" width="20" height="20"></rect>
+                    <path d="M8.29289322,1.29289322 C8.68341751,0.902368927 9.31658249,0.902368927 9.70710678,1.29289322 C10.0675907,1.65337718 10.0953203,2.22060824 9.79029539,2.61289944 L9.70710678,2.70710678 L2.415,10 L9.70710678,17.2928932 C10.0675907,17.6533772 10.0953203,18.2206082 9.79029539,18.6128994 L9.70710678,18.7071068 C9.34662282,19.0675907 8.77939176,19.0953203 8.38710056,18.7902954 L8.29289322,18.7071068 L0.292893219,10.7071068 C-0.0675907428,10.3466228 -0.0953202783,9.77939176 0.209704612,9.38710056 L0.292893219,9.29289322 L8.29289322,1.29289322 Z" id="路径-4" fill="#979797" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

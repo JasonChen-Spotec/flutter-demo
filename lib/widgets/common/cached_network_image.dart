@@ -8,17 +8,16 @@ Widget netImage(
     double? width,
     double? height,
     double borderRadius = .0}) {
-  return Container(
-    decoration:
-        BoxDecoration(borderRadius: BorderRadius.circular(borderRadius)),
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(borderRadius),
     child: CachedNetworkImage(
       imageUrl: imageUrl,
       placeholder: (context, url) => Center(child: CircularProgressIndicator()),
       errorWidget: (context, url, error) => Icon(Icons.error),
       cacheManager: CustomCacheManager.instance,
-      fit: fit,
       width: width,
       height: height,
+      fit: fit,
     ),
   );
 }

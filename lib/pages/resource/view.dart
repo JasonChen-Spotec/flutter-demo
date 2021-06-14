@@ -56,7 +56,10 @@ class ResourcePage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(40)),
-                  child: SvgPicture.asset(AssetsSvg.IC_XIAZAI),
+                  child: SvgPicture.asset(
+                    AssetsSvg.IC_XIAZAI,
+                    color: AppColors.primaryTextColor,
+                  ),
                 )
               ],
             ),

@@ -28,7 +28,7 @@ Widget reourceItem(dynamic item) {
       children: [
         netImage(
           imageUrl: "http://via.placeholder.com/350x150",
-          borderRadius: 2,
+          borderRadius: Pt.pt2,
           width: Pt.pt96,
           height: Pt.pt96,
           fit: BoxFit.fill,

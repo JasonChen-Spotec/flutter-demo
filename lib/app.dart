@@ -1,6 +1,5 @@
 import 'package:yyba_app/pages/splash/view.dart';
 import 'package:yyba_app/static/app_colors.dart';
-import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/utils/log.dart';
 import 'package:flutter/cupertino.dart' hide Page;
 import 'package:flutter/material.dart' hide Page;
@@ -63,12 +62,10 @@ class _InitedAppState extends State<InitedApp>
           splashColor: Colors.transparent,
           backgroundColor: AppColors.backgroundColor,
           appBarTheme: AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.black),
+            iconTheme: IconThemeData(color: Colors.white),
             elevation: 0,
-            color: Colors.black,
-            textTheme: TextTheme(
-              headline6: TextStyle(color: Colors.white, fontSize: Pt.pt18),
-            ),
+            backgroundColor: Colors.white,
+            titleTextStyle: TextStyle(color: AppColors.primaryTextColor),
           ),
         ),
 

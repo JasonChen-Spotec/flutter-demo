@@ -2,6 +2,7 @@
 
 class AssetsSvg {
   static const IC_ADD = 'assets/svg/ic_add.svg';
+  static const IC_BACK = 'assets/svg/ic_back.svg';
   static const IC_CHUANGYE = 'assets/svg/ic_chuangye.svg';
   static const IC_DONGTAI = 'assets/svg/ic_dongtai.svg';
   static const IC_DONGTAI_ACTIVE = 'assets/svg/ic_dongtai_active.svg';
@@ -18,6 +19,7 @@ class AssetsSvg {
   static const IC_TUIJIANYU_HUANG = 'assets/svg/ic_tuijianyu_huang.svg';
   static const IC_WODE = 'assets/svg/ic_wode.svg';
   static const IC_WODE_ACTIVE = 'assets/svg/ic_wode_active.svg';
+  static const IC_XIAOJIANTOU_YOU = 'assets/svg/ic_xiaojiantou_you.svg';
   static const IC_XIAZAI = 'assets/svg/ic_xiazai.svg';
   static const IC_XIAZAILIANG = 'assets/svg/ic_xiazailiang.svg';
   static const IC_XINMEITI = 'assets/svg/ic_xinmeiti.svg';
