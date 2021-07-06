@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
-import 'package:yyba_app/widgets/app_bars.dart/custom_app_bar.dart';
+import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
 import 'package:yyba_app/widgets/common/keep_alive.dart';
 import 'package:yyba_app/widgets/common/pull_refresh.dart';
 import 'package:yyba_app/widgets/items/reource_item.dart';

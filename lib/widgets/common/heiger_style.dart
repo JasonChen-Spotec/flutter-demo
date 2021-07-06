@@ -13,8 +13,32 @@ class OpText extends StatelessWidget {
     TextStyle style = const TextStyle(),
   }) : style = style.copyWith(
             fontFamily: 'Monospace',
-            fontSize: Pt.pt12,
+            fontSize: style.fontSize ?? Pt.pt12,
             color: AppColors.primaryTextColorOp);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      data,
+      textAlign: align,
+      style: style,
+    );
+  }
+}
+
+class DfText extends StatelessWidget {
+  final String data;
+  final TextAlign? align;
+  final TextStyle style;
+
+  DfText(
+    this.data, {
+    this.align,
+    TextStyle style = const TextStyle(),
+  }) : style = style.copyWith(
+            fontFamily: 'Monospace',
+            fontSize: style.fontSize ?? Pt.pt12,
+            color: AppColors.primaryTextColor);
 
   @override
   Widget build(BuildContext context) {

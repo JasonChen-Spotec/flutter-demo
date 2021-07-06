@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:yyba_app/common/local_router/jump_router.dart';
+import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/widgets/common/cached_network_image.dart';
@@ -18,66 +20,71 @@ Widget reourceItem(dynamic item) {
     _CtrlStatic(AssetsSvg.IC_SHOUCANG, 12),
   ];
 
-  return Container(
-    height: Pt.pt120,
-    padding: EdgeInsets.all(Pt.pt12),
-    margin: EdgeInsets.only(bottom: Pt.pt12),
-    decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(2)),
-    child: Row(
-      children: [
-        netImage(
-          imageUrl: "http://via.placeholder.com/350x150",
-          borderRadius: Pt.pt2,
-          width: Pt.pt96,
-          height: Pt.pt96,
-          fit: BoxFit.fill,
-        ),
-        SizedBox(
-          width: Pt.pt12,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '富爸爸穷爸爸的进阶版',
-              style: TextStyle(
-                fontSize: Pt.pt16,
-                fontWeight: FontWeight.w600,
+  return GestureDetector(
+    onTap: () {
+      RouterCtrl.push(PAGE_VIDEO_RESOURCE);
+    },
+    child: Container(
+      height: Pt.pt120,
+      padding: EdgeInsets.all(Pt.pt12),
+      margin: EdgeInsets.only(bottom: Pt.pt12),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(2)),
+      child: Row(
+        children: [
+          netImage(
+            imageUrl: "http://via.placeholder.com/350x150",
+            borderRadius: Pt.pt2,
+            width: Pt.pt96,
+            height: Pt.pt96,
+            fit: BoxFit.fill,
+          ),
+          SizedBox(
+            width: Pt.pt12,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '富爸爸穷爸爸的进阶版',
+                style: TextStyle(
+                  fontSize: Pt.pt16,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            Row(children: [
-              OpText('#'),
-              SizedBox(width: Pt.pt5),
-              ...List.generate(3, (index) {
-                return Container(
-                  margin: EdgeInsets.only(right: Pt.pt8),
-                  child: OpText('有声书籍'),
-                );
-              }),
-            ]),
-            Row(
-              children: List.generate(ctrlStatic.length, (index) {
-                return Container(
-                  margin: EdgeInsets.only(right: Pt.pt24),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        ctrlStatic[index].icon,
-                        width: Pt.pt12,
-                        height: Pt.pt12,
-                      ),
-                      SizedBox(width: Pt.pt3),
-                      OpText(ctrlStatic[index].nunVal.toString())
-                    ],
-                  ),
-                );
-              }),
-            )
-          ],
-        )
-      ],
+              Row(children: [
+                OpText('#'),
+                SizedBox(width: Pt.pt5),
+                ...List.generate(3, (index) {
+                  return Container(
+                    margin: EdgeInsets.only(right: Pt.pt8),
+                    child: OpText('有声书籍'),
+                  );
+                }),
+              ]),
+              Row(
+                children: List.generate(ctrlStatic.length, (index) {
+                  return Container(
+                    margin: EdgeInsets.only(right: Pt.pt24),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          ctrlStatic[index].icon,
+                          width: Pt.pt12,
+                          height: Pt.pt12,
+                        ),
+                        SizedBox(width: Pt.pt3),
+                        OpText(ctrlStatic[index].nunVal.toString())
+                      ],
+                    ),
+                  );
+                }),
+              )
+            ],
+          )
+        ],
+      ),
     ),
   );
 }

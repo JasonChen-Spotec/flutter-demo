@@ -7,7 +7,7 @@ import 'package:yyba_app/static/size.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/utils/screen.dart';
-import 'package:yyba_app/widgets/app_bars.dart/custom_app_bar.dart';
+import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
 import 'package:yyba_app/widgets/common/sub_title.dart';
 import 'package:yyba_app/widgets/items/reource_item.dart';
 

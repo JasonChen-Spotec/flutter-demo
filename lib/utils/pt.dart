@@ -72,6 +72,7 @@ class Pt {
   static double get pt54 => screen.getWidth(54);
   static double get pt57 => screen.getWidth(57);
   static double get pt58 => screen.getWidth(58);
+  static double get pt59 => screen.getWidth(59);
   static double get pt60 => screen.getWidth(60);
   static double get pt62 => screen.getWidth(62);
   static double get pt64 => screen.getWidth(64);
