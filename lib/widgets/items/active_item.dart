@@ -12,7 +12,6 @@ Widget activeItem(dynamic item) {
       RouterCtrl.push(PAGE_VIDEO_RESOURCE);
     },
     child: Container(
-        height: Pt.pt120,
         padding: EdgeInsets.all(Pt.pt12),
         margin: EdgeInsets.only(bottom: Pt.pt12),
         decoration: BoxDecoration(
@@ -27,9 +26,9 @@ Widget activeItem(dynamic item) {
                   children: [
                     netImage(
                       imageUrl: "http://via.placeholder.com/52x52",
-                      width: Pt.pt52,
-                      height: Pt.pt52,
-                      borderRadius: Pt.pt52,
+                      width: Pt.pt44,
+                      height: Pt.pt44,
+                      borderRadius: Pt.pt44,
                       fit: BoxFit.fill,
                     ),
                     SizedBox(width: Pt.pt12),
@@ -63,6 +62,60 @@ Widget activeItem(dynamic item) {
                     color: Color(0xff969799),
                   ),
                 )
+              ],
+            ),
+            SizedBox(height: Pt.pt12),
+            Container(
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Pt.pt3),
+              ),
+              child: Row(
+                children: [
+                  netImage(
+                      imageUrl: 'http://via.placeholder.com/350x150',
+                      width: Pt.pt67,
+                      height: Pt.pt67),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(Pt.pt12),
+                      color: Color(0xffF5F5F5),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              DfText(
+                                '富爸爸穷爸爸的进阶版',
+                                style: TextStyle(fontSize: Pt.pt16),
+                              ),
+                              SizedBox(width: Pt.pt4),
+                              Image.asset(AssetsImg.IC_VIP1, width: Pt.pt27)
+                            ],
+                          ),
+                          SizedBox(height: Pt.pt4),
+                          Row(children: [
+                            OpText('#'),
+                            SizedBox(width: Pt.pt5),
+                            ...List.generate(3, (index) {
+                              return Container(
+                                margin: EdgeInsets.only(right: Pt.pt8),
+                                child: OpText('有声书籍'),
+                              );
+                            }),
+                          ]),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: Pt.pt12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OpText('45下载 · 567收藏'),
+                OpText('5分钟前'),
               ],
             )
           ],
