@@ -64,6 +64,7 @@ class _DynamicPage extends StatelessWidget {
                 onRefresh: () => _viewProvider.onRefresh(),
                 child: ListView.builder(
                   physics: ClampingScrollPhysics(),
+                  padding: EdgeInsets.only(top: Pt.pt12),
                   itemCount: 20,
                   itemBuilder: (__, int ii) {
                     return activeItem('item');

@@ -37,7 +37,7 @@ class ResourceSecondPage extends StatelessWidget {
                       Container(
                         color: Colors.white,
                         padding: EdgeInsets.only(
-                            left: Pt.pt16, right: Pt.pt16, top: Pt.pt22),
+                            left: Pt.pt16, right: Pt.pt16, top: Pt.pt10),
                         child: Container(
                           width: Pt.pt343,
                           height: Pt.pt32,
