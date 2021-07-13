@@ -8,7 +8,9 @@ class AssetsSvg {
   static const IC_DONGTAI = 'assets/svg/ic_dongtai.svg';
   static const IC_DONGTAI_ACTIVE = 'assets/svg/ic_dongtai_active.svg';
   static const IC_DUIHUANMA = 'assets/svg/ic_duihuanma.svg';
+  static const IC_FENSI = 'assets/svg/ic_fensi.svg';
   static const IC_GUANYU = 'assets/svg/ic_guanyu.svg';
+  static const IC_HUDONGXIAOXI = 'assets/svg/ic_hudongxiaoxi.svg';
   static const IC_HULIANWANG = 'assets/svg/ic_hulianwang.svg';
   static const IC_HUNLIAN = 'assets/svg/ic_hunlian.svg';
   static const IC_HUODONGZHONGXIN = 'assets/svg/ic_huodongzhongxin.svg';
@@ -16,6 +18,9 @@ class AssetsSvg {
   static const IC_JIANZHU = 'assets/svg/ic_jianzhu.svg';
   static const IC_JILU = 'assets/svg/ic_jilu.svg';
   static const IC_JINRONG = 'assets/svg/ic_jinrong.svg';
+  static const IC_JINSHI = 'assets/svg/ic_jinshi.svg';
+  static const IC_KEFU = 'assets/svg/ic_kefu.svg';
+  static const IC_LINGDANGTIXING = 'assets/svg/ic_lingdangtixing.svg';
   static const IC_LIULAN = 'assets/svg/ic_liulan.svg';
   static const IC_QITA = 'assets/svg/ic_qita.svg';
   static const IC_SAOYISAO = 'assets/svg/ic_saoyisao.svg';
@@ -30,6 +35,8 @@ class AssetsSvg {
   static const IC_WODE_SHOUCANG = 'assets/svg/ic_wode_shoucang.svg';
   static const IC_WODE_XIAZAI = 'assets/svg/ic_wode_xiazai.svg';
   static const IC_XIAOJIANTOU_YOU = 'assets/svg/ic_xiaojiantou_you.svg';
+  static const IC_XIAOXIYIDU = 'assets/svg/ic_xiaoxiyidu.svg';
+  static const IC_XIAOXIYISONG = 'assets/svg/ic_xiaoxiyisong.svg';
   static const IC_XIAZAI = 'assets/svg/ic_xiazai.svg';
   static const IC_XIAZAILIANG = 'assets/svg/ic_xiazailiang.svg';
   static const IC_XINMEITI = 'assets/svg/ic_xinmeiti.svg';

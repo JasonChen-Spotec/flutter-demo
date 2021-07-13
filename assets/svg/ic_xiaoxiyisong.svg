@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="消息" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="信息" transform="translate(-343.000000, -881.000000)">
+            <g id="编组-2备份-8" transform="translate(0.000000, 832.000000)">
+                <g id="编组" transform="translate(16.000000, 12.000000)">
+                    <g id="编组-3" transform="translate(78.000000, 7.000000)">
+                        <g id="ic/聊天-已送达" transform="translate(249.000000, 30.000000)">
+                            <polygon id="矩形" opacity="0.200000003" points="-5.05089797e-14 0 16 0 16 16 -5.05089797e-14 16"></polygon>
+                            <path d="M13.313,3 L14.02,3.706 L5.15681528,12.5699221 L1,8.413 L1.707,7.706 L5.15681528,11.1558153 L13.313,3 Z" id="形状结合" fill="#979797" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

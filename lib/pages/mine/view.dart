@@ -60,40 +60,44 @@ class _MinePageState extends State<MinePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          netImage(
-                            imageUrl: "http://via.placeholder.com/52x52",
-                            width: Pt.pt52,
-                            height: Pt.pt52,
-                            borderRadius: Pt.pt52,
-                            fit: BoxFit.fill,
-                          ),
-                          SizedBox(width: Pt.pt16),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '吕治易',
-                                    style: TextStyle(fontSize: Pt.pt22),
-                                  ),
-                                  SizedBox(width: Pt.pt10),
-                                  Image.asset(AssetsImg.IC_VIP1, width: Pt.pt25)
-                                ],
-                              ),
-                              Text(
-                                '账号45678',
-                                style: TextStyle(
-                                  color: AppColors.primaryTextColorOp,
-                                  fontSize: Pt.pt14,
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Row(
+                          children: [
+                            netImage(
+                              imageUrl: "http://via.placeholder.com/52x52",
+                              width: Pt.pt52,
+                              height: Pt.pt52,
+                              borderRadius: Pt.pt52,
+                              fit: BoxFit.fill,
+                            ),
+                            SizedBox(width: Pt.pt16),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      '吕治易',
+                                      style: TextStyle(fontSize: Pt.pt22),
+                                    ),
+                                    SizedBox(width: Pt.pt10),
+                                    Image.asset(AssetsImg.IC_VIP1,
+                                        width: Pt.pt25)
+                                  ],
                                 ),
-                              )
-                            ],
-                          )
-                        ],
+                                Text(
+                                  '账号45678',
+                                  style: TextStyle(
+                                    color: AppColors.primaryTextColorOp,
+                                    fontSize: Pt.pt14,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SvgPicture.asset(
