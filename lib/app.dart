@@ -67,6 +67,8 @@ class _InitedAppState extends State<InitedApp>
             backgroundColor: Colors.white,
             titleTextStyle: TextStyle(color: AppColors.primaryTextColor),
           ),
+          textSelectionTheme:
+              TextSelectionThemeData(cursorColor: AppColors.active),
         ),
 
         debugShowCheckedModeBanner: true,

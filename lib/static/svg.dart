@@ -14,6 +14,7 @@ class AssetsSvg {
   static const IC_HULIANWANG = 'assets/svg/ic_hulianwang.svg';
   static const IC_HUNLIAN = 'assets/svg/ic_hunlian.svg';
   static const IC_HUODONGZHONGXIN = 'assets/svg/ic_huodongzhongxin.svg';
+  static const IC_JIANTOU_XIA = 'assets/svg/ic_jiantou_xia.svg';
   static const IC_JIANTOU_YOU = 'assets/svg/ic_jiantou_you.svg';
   static const IC_JIANZHU = 'assets/svg/ic_jianzhu.svg';
   static const IC_JILU = 'assets/svg/ic_jilu.svg';

@@ -10,6 +10,7 @@ import 'package:yyba_app/utils/screen.dart';
 import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
 import 'package:yyba_app/widgets/common/sub_title.dart';
 import 'package:yyba_app/widgets/items/reource_item.dart';
+import 'package:yyba_app/widgets/search_bars/search_container.dart';
 
 class ResourceSecondPage extends StatelessWidget {
   const ResourceSecondPage({Key? key}) : super(key: key);
@@ -34,32 +35,7 @@ class ResourceSecondPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      Container(
-                        color: Colors.white,
-                        padding: EdgeInsets.only(
-                            left: Pt.pt16, right: Pt.pt16, top: Pt.pt10),
-                        child: Container(
-                          width: Pt.pt343,
-                          height: Pt.pt32,
-                          padding: EdgeInsets.only(left: Pt.pt12),
-                          decoration: BoxDecoration(
-                              color: Color(0xfff5f5f5),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(Pt.pt32))),
-                          child: DefaultTextStyle(
-                            style: TextStyle(
-                                color: AppColors.primaryTextColor
-                                    .withOpacity(0.3)),
-                            child: Row(
-                              children: [
-                                SvgPicture.asset(AssetsSvg.IC_SOUSUO),
-                                SizedBox(width: Pt.pt10),
-                                Text('搜索...')
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      searchContainer(),
                       Container(
                         width: screen.screenWidth,
                         height: Pt.pt160,

@@ -5,6 +5,7 @@ import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
 import 'package:yyba_app/widgets/items/msg_item.dart';
+import 'package:yyba_app/widgets/search_bars/search_container.dart';
 
 class MessagePage extends StatelessWidget {
   MessagePage({Key? key}) : super(key: key);
@@ -52,33 +53,7 @@ class MessagePage extends StatelessWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(
-                  child: Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.only(
-                        left: Pt.pt16, right: Pt.pt16, top: Pt.pt10),
-                    child: Container(
-                      width: Pt.pt343,
-                      height: Pt.pt32,
-                      padding: EdgeInsets.only(left: Pt.pt12),
-                      decoration: BoxDecoration(
-                          color: Color(0xfff5f5f5),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(Pt.pt32))),
-                      child: DefaultTextStyle(
-                        style: TextStyle(
-                            color: AppColors.primaryTextColor.withOpacity(0.3)),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(AssetsSvg.IC_SOUSUO),
-                            SizedBox(width: Pt.pt10),
-                            Text('搜索...')
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                SliverToBoxAdapter(child: searchContainer()),
                 SliverToBoxAdapter(
                   child: Column(
                     children: List.generate(sysMsgList.length, (index) {

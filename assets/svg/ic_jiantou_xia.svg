@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="6px" viewBox="0 0 12 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.011765 0 0 0 0 0.035294 0 0 0 0 0.098039 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="登录注册" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-102.000000, -205.000000)" id="ic/小箭头" filter="url(#filter-1)">
+            <g transform="translate(108.000000, 208.000000) rotate(-270.000000) translate(-108.000000, -208.000000) translate(105.000000, 202.000000)">
+                <rect id="矩形" opacity="0.200000003" x="0" y="0" width="6" height="12"></rect>
+                <polyline id="路径-4" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(3.000000, 6.000000) scale(-1, 1) translate(-3.000000, -6.000000) " points="5 10 1 6 5 2"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,6 @@
 import 'package:yyba_app/pages/home/view.dart';
+import 'package:yyba_app/pages/login/verify_code/view.dart';
+import 'package:yyba_app/pages/login/view.dart';
 import 'package:yyba_app/pages/resource/resource_second/view.dart';
 import 'package:yyba_app/pages/resource/resource_third/view.dart';
 import 'package:yyba_app/pages/splash/view.dart';
@@ -10,6 +12,12 @@ const PAGE_SPLASH = "splash";
 
 ///home
 const PAGE_HOME = "home";
+
+///登陆页
+const PAGE_LOGIN = "login";
+
+///验证码页面
+const PAGE_VERIFY_CODE = "verify_code";
 
 ///资源二级页面
 const PAGE_RESOURCE_SECOND = "resource_second";
@@ -26,4 +34,6 @@ Map<String, WidgetBuilder> routerMap = <String, WidgetBuilder>{
   PAGE_RESOURCE_SECOND: (_) => ResourceSecondPage(),
   PAGE_RESOURCE_THIRD: (_) => ResourceThirdPage(),
   PAGE_VIDEO_RESOURCE: (_) => VideoResource(),
+  PAGE_LOGIN: (_) => LoginPage(),
+  PAGE_VERIFY_CODE: (_) => VerifyCodePage(),
 };

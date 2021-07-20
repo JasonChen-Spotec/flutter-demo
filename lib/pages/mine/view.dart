@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:yyba_app/common/local_router/jump_router.dart';
+import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/img.dart';
 import 'package:yyba_app/static/size.dart';
@@ -61,7 +63,9 @@ class _MinePageState extends State<MinePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        RouterCtrl.push(PAGE_LOGIN);
+                      },
                       child: Container(
                         child: Row(
                           children: [
