@@ -67,15 +67,14 @@ class _LoginPage extends StatelessWidget {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            // showAreaCodeSheet(context);
                             showPicker(_viewProvider);
                           },
                           child: Container(
-                            width: Pt.pt50,
+                            width: Pt.pt55,
                             child: Row(
                               children: [
                                 DfText(
-                                  '+86',
+                                  _viewProvider.areaCode,
                                   style: TextStyle(fontSize: Pt.pt17),
                                 ),
                                 SizedBox(width: Pt.pt5),
@@ -109,19 +108,21 @@ class _LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: Pt.pt20),
-                  Container(
-                    child: Text(
-                      '手机号码错误',
-                      style: TextStyle(
-                          color: Color(0xffF41111), fontSize: Pt.pt14),
-                    ),
-                  ),
+                  _viewProvider.phoneError
+                      ? Container(
+                          child: Text(
+                            '手机号码错误',
+                            style: TextStyle(
+                                color: Color(0xffF41111), fontSize: Pt.pt14),
+                          ),
+                        )
+                      : Container(),
                   SizedBox(height: Pt.pt40),
                   Container(
                     child: LoginBtn(
                       '下一步',
                       onTap: () {
-                        RouterCtrl.push(PAGE_VERIFY_CODE);
+                        _viewProvider.loginNext();
                       },
                     ),
                   ),

@@ -68,7 +68,7 @@ class HttpRespInterceptor extends InterceptorsWrapper {
     /// 展示提示
     if (code != Code.SUCCESS) {
       if (TextUtil.isEmpty(baseResp.tip!)) baseResp.tip = "服务器错误";
-      showToast(msg: "$code:${baseResp.tip}");
+      showToast("$code:${baseResp.tip}");
     } else {
       // if (TextUtil.isNotEmpty(baseResp.tip)) {
       //   showToast(msg: baseResp.tip);

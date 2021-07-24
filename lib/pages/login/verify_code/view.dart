@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:yyba_app/static/app_colors.dart';
-import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/utils/screen.dart';
 import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
@@ -24,8 +23,24 @@ class VerifyCodePage extends StatelessWidget {
   }
 }
 
-class _VerifyCodePage extends StatelessWidget {
-  const _VerifyCodePage({Key? key}) : super(key: key);
+class _VerifyCodePage extends StatefulWidget {
+  _VerifyCodePage({Key? key}) : super(key: key);
+
+  @override
+  __VerifyCodePageState createState() => __VerifyCodePageState();
+}
+
+class __VerifyCodePageState extends State<_VerifyCodePage> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      Provider.of<ViewCtrl>(context, listen: false).sendCode();
+      var arg = ModalRoute.of(context)!.settings.arguments;
+      Provider.of<ViewCtrl>(context, listen: false).initPage(arg);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,46 +64,40 @@ class _VerifyCodePage extends StatelessWidget {
                   ),
                   SizedBox(height: Pt.pt4),
                   DfText(
-                    '18284374747',
+                    _viewProvider.phone,
                     style: TextStyle(
                         fontSize: Pt.pt20, fontWeight: FontWeight.w600),
                   ),
                   //请输入手机号码
                   Container(
-                    margin: EdgeInsets.only(top: Pt.pt40),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate([1, 2, 3, 4].length, (index) {
-                        _viewProvider.phoneController.value =
-                            TextEditingValue(text: '1');
-                        return Container(
-                          width: Pt.pt60,
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color:
-                                    AppColors.primaryTextColor.withOpacity(0.3),
-                              ),
-                            ),
-                          ),
-                          child: TextField(
-                            style: TextStyle(fontSize: Pt.pt17),
-                            keyboardType: TextInputType.numberWithOptions(),
-                            controller: _viewProvider.phoneController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsetsDirectional.only(
-                                  start: Pt.pt20, end: Pt.pt20),
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ),
+                      margin: EdgeInsets.only(top: Pt.pt40),
+                      child: PinCodeTextField(
+                        length: 4,
+                        obscureText: false,
+                        animationType: AnimationType.fade,
+                        pinTheme: PinTheme(
+                            borderWidth: 1,
+                            shape: PinCodeFieldShape.underline,
+                            fieldHeight: Pt.pt60,
+                            fieldWidth: Pt.pt60,
+                            activeFillColor: Colors.white,
+                            activeColor:
+                                AppColors.primaryTextColor.withOpacity(0.1),
+                            inactiveColor:
+                                AppColors.primaryTextColor.withOpacity(0.1),
+                            selectedColor: AppColors.active),
+                        animationDuration: Duration(milliseconds: 300),
+                        controller: _viewProvider.verityCodeController,
+                        onCompleted: (value) {},
+                        onChanged: (value) {
+                          _viewProvider.codeInputChange(value);
+                        },
+                        appContext: context,
+                      )),
                   SizedBox(height: Pt.pt20),
                   Container(
                     child: Text(
-                      '验证码错误',
+                      _viewProvider.verityCode ? '' : '验证码错误',
                       style: TextStyle(
                           color: Color(0xffF41111), fontSize: Pt.pt14),
                     ),
@@ -112,7 +121,7 @@ class _VerifyCodePage extends StatelessWidget {
                                       .withOpacity(0.1),
                                   textColor: AppColors.primaryTextColorOp,
                                   onTap: () {
-                                    _viewProvider.sendCodeAgain();
+                                    _viewProvider.sendCode();
                                   },
                                 );
                               },
@@ -121,7 +130,7 @@ class _VerifyCodePage extends StatelessWidget {
                               },
                             ),
                           )
-                        : _viewProvider.codeSendOver
+                        : !context.watch<ViewCtrl>().codeInputOver
                             ? LoginBtn(
                                 '重新发送',
                                 color:
@@ -134,7 +143,7 @@ class _VerifyCodePage extends StatelessWidget {
                             : LoginBtn(
                                 '下一步',
                                 onTap: () {
-                                  _viewProvider.sendCode();
+                                  _viewProvider.login();
                                 },
                               ),
                   ),

@@ -8,7 +8,7 @@ openBrowser(String url, {String tip = '出错了'}) async {
     if (await canLaunch(url)) {
       await launch(url, forceSafariVC: false, forceWebView: false);
     } else {
-      showToast(msg: tip);
+      showToast(tip);
     }
     return;
   } catch (e) {

@@ -1,11 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class ViewCtrl with ChangeNotifier {
-  TextEditingController areaController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  TextEditingController verityCodeController = TextEditingController();
 
   bool codeIsSending = false;
-  bool codeSendOver = false;
+  bool codeInputOver = false;
+  bool verityCode = true;
+
+  String phone = '';
+
+  initPage(args) {
+    phone = args['phone'];
+    log(args.toString());
+    notifyListeners();
+  }
 
   sendCode() {
     codeIsSending = true;
@@ -13,13 +23,16 @@ class ViewCtrl with ChangeNotifier {
   }
 
   sendOverCode() {
-    codeSendOver = true;
     codeIsSending = false;
     notifyListeners();
   }
 
-  sendCodeAgain() {
-    codeSendOver = false;
-    notifyListeners();
+  codeInputChange(String val) {
+    if (val.length == 4) {
+      codeInputOver = true;
+      notifyListeners();
+    }
   }
+
+  login() {}
 }
