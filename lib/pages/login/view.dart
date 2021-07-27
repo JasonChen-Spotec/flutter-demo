@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:yyba_app/common/local_router/jump_router.dart';
-import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';

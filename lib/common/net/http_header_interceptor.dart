@@ -18,7 +18,7 @@ class HttpHeaderInterceptor extends InterceptorsWrapper {
     } else if (options.method == "POST") {
       options.headers["Content-Type"] = "application/json;charset=UTF-8";
     }
-    options.headers["User-Agent"] = await netManager.userAgent();
+    // options.headers["User-Agent"] = await netManager.userAgent();
     // options.headers["Accept"] = "application/json;charset=UTF-8";
     // options.headers["app_version"] = version.versionLocal;
     options.headers["api_version"] = "1.0.0";

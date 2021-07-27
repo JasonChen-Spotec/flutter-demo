@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:yyba_app/common/net/net_manager.dart';
 
 class ViewCtrl with ChangeNotifier {
   TextEditingController verityCodeController = TextEditingController();
@@ -9,16 +10,19 @@ class ViewCtrl with ChangeNotifier {
   bool codeInputOver = false;
   bool verityCode = true;
 
-  String phone = '';
+  Map<String, dynamic> pageArgs = {'phone': ''};
 
   initPage(args) {
-    phone = args['phone'];
-    log(args.toString());
+    pageArgs = new Map<String, dynamic>.from(args);
     notifyListeners();
   }
 
-  sendCode() {
+  sendCode() async {
     codeIsSending = true;
+    log(pageArgs.toString());
+    var res = await netClient.sendSms(
+        pageArgs['phone']!, pageArgs['area']!, 'fastlogin');
+    log(res.toString());
     notifyListeners();
   }
 

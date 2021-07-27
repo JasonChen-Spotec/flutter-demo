@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:yyba_app/common/config/config.dart';
 import 'package:yyba_app/utils/log.dart';
 import 'package:dio/dio.dart';
@@ -9,6 +11,7 @@ class HttpLogInterceptor extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    log('BEGIN REQUEST');
     l.d(TAG, '################# BEGIN REQUEST #####################\n',
         saveFile: false);
     l.d(TAG,

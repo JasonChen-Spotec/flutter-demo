@@ -22,7 +22,27 @@ class _ClientApi implements ClientApi {
         _setStreamType<ServicesModel>(
             Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
                 .compose(_dio.options, '/user/product/list',
-                    data: _data, queryParameters: queryParameters)
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ServicesModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ServicesModel> sendSms(phone, gbcode, businessType) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = {
+      'phone': phone,
+      'gbcode': gbcode,
+      'businessType': businessType
+    };
+    log(_dio.options.baseUrl);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ServicesModel>(
+            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+                .compose(_dio.options, '/sms/send',
+                    queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ServicesModel.fromJson(_result.data!);
     return value;

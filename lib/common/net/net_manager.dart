@@ -17,6 +17,8 @@ const int CONNECT_TIME_OUT = 15 * 1000;
 
 final netManager = NetManager();
 
+final netClient = netManager.client;
+
 class NetManager {
   late Dio _clientDio;
   // Dio _bankDio;

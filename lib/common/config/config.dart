@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  static const DEBUG = !const bool.fromEnvironment("dart.vm.product");
+  static const DEBUG = bool.fromEnvironment("dart.vm.product");
   static const PROXY = false;
   static const proxyUrl = '';
   // 打开cdn源站 避免访问平凡无法测试的情况
@@ -23,16 +23,4 @@ class Config {
   /// 获取顶层BuildContext
   static BuildContext get appContext =>
       Config.navigatorKey.currentState!.overlay!.context;
-
-  /// cdn 源站地址
-  static const SOURCE_URL = "https://yuan.dhuqh.com";
-
-  ///本地线路配置
-  static const List<String> LINE_LIST = DEBUG
-      ? [
-          "http://163.53.216.122:9996",
-        ]
-      : [
-          "https://api.chenmiu.cn",
-        ];
 }

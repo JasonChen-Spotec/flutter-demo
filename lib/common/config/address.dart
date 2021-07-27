@@ -1,3 +1,5 @@
+import 'config.dart';
+
 ///地址数据
 class Address {
   static const API_PREFIX = "api/app";
@@ -14,7 +16,8 @@ class Address {
   static String baseHost = '';
 
   /// 基本的path
-  static String baseApiPath = '';
+  static String baseApiPath =
+      Config.DEBUG ? "http://39.101.199.96:9090" : "http://39.101.199.96:9090";
 
   ///h5地址
   static String h5Url = '';

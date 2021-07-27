@@ -36,9 +36,9 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
     super.initState();
 
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      Provider.of<ViewCtrl>(context, listen: false).sendCode();
       var arg = ModalRoute.of(context)!.settings.arguments;
       Provider.of<ViewCtrl>(context, listen: false).initPage(arg);
+      Provider.of<ViewCtrl>(context, listen: false).sendCode();
     });
   }
 
@@ -64,7 +64,7 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
                   ),
                   SizedBox(height: Pt.pt4),
                   DfText(
-                    _viewProvider.phone,
+                    _viewProvider.pageArgs['phone']!,
                     style: TextStyle(
                         fontSize: Pt.pt20, fontWeight: FontWeight.w600),
                   ),

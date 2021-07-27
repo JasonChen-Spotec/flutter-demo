@@ -5,7 +5,6 @@ import 'package:yyba_app/common/local_router/jump_router.dart';
 import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/static/area_phone_code.dart';
 import 'package:yyba_app/utils/check_val.dart';
-import 'package:yyba_app/utils/toast_util.dart';
 
 class ViewCtrl with ChangeNotifier {
   TextEditingController areaController = TextEditingController();

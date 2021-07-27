@@ -22,10 +22,10 @@ Dio createDio({BaseOptions? options, bool mainThread = true}) {
   var dio = Dio(options);
 
   var adapter = DefaultHttpClientAdapter();
-  adapter.onHttpClientCreate = (client) {
-    client.badCertificateCallback =
-        (X509Certificate cert, String host, int port) => true;
-  };
+  // adapter.onHttpClientCreate = (client) {
+  //   client.badCertificateCallback =
+  //       (X509Certificate cert, String host, int port) => true;
+  // };
 
   // var adapter = Http2Adapter(
   //   ConnectionManager(
@@ -40,16 +40,16 @@ Dio createDio({BaseOptions? options, bool mainThread = true}) {
 
   dio.httpClientAdapter = adapter;
 
-  if (Config.PROXY &&
-      TextUtil.isNotEmpty(Config.proxyUrl) &&
-      dio.httpClientAdapter is DefaultHttpClientAdapter) {
-    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-        (client) {
-      client.findProxy = (uri) {
-        return Config.proxyUrl;
-      };
-    };
-  }
+  // if (Config.PROXY &&
+  //     TextUtil.isNotEmpty(Config.proxyUrl) &&
+  //     dio.httpClientAdapter is DefaultHttpClientAdapter) {
+  //   (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+  //       (client) {
+  //     client.findProxy = (uri) {
+  //       return Config.proxyUrl;
+  //     };
+  //   };
+  // }
   return dio;
 }
 

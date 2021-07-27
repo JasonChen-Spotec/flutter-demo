@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:yyba_app/common/config/config.dart';
 import 'package:yyba_app/common/local_router/jump_router.dart';
 import 'package:yyba_app/common/local_router/router_map.dart';
@@ -6,8 +7,36 @@ import 'package:yyba_app/utils/screen.dart';
 import 'package:yyba_app/widgets/common/count_timer_builder.dart';
 import 'package:flutter/material.dart';
 
+import 'controller.dart';
+
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ViewCtrl>.value(
+      value: ViewCtrl(),
+      child: _Splash(),
+    );
+  }
+}
+
+class _Splash extends StatefulWidget {
+  const _Splash({Key? key}) : super(key: key);
+
+  @override
+  __SplashState createState() => __SplashState();
+}
+
+class __SplashState extends State<_Splash> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      Provider.of<ViewCtrl>(context, listen: false).initPage();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,10 @@
+import 'dart:developer';
+
 import 'package:yyba_app/model/services_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 part 'client_api.g.dart';
 
-/// net 中间层，面向接口的编程和依赖注入
-//执行脚本
-//flutter packages pub run build_runner build --delete-conflicting-outputs
-//网络接口地址
 @RestApi()
 abstract class ClientApi {
   factory ClientApi(Dio dio, {String baseUrl}) = _ClientApi;
@@ -16,5 +14,13 @@ abstract class ClientApi {
   Future<ServicesModel> getInviteList(
     @Field() int pageNum,
     @Field() int pageSize,
+  );
+
+  ///发送短信
+  @POST("/sms/send")
+  Future<ServicesModel> sendSms(
+    @Field() String phone,
+    @Field() String gbcode,
+    @Field() String businessType,
   );
 }
