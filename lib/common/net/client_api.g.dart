@@ -14,22 +14,7 @@ class _ClientApi implements ClientApi {
   String? baseUrl;
 
   @override
-  Future<ServicesModel> getInviteList(pageNum, pageSize) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _data = {'pageNum': pageNum, 'pageSize': pageSize};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ServicesModel>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/user/product/list',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ServicesModel.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<ServicesModel> sendSms(phone, gbcode, businessType) async {
+  Future<dynamic> sendSms(phone, gbcode, businessType) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = {
@@ -37,13 +22,26 @@ class _ClientApi implements ClientApi {
       'gbcode': gbcode,
       'businessType': businessType
     };
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/sms/send',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<ServicesModel> login(phone, gbcode, smsCode) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = {'phone': phone, 'gbcode': gbcode, 'smsCode': smsCode};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ServicesModel>(
             Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/sms/send',
+                .compose(_dio.options, '/login',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    log(_result.data.toString());
     final value = ServicesModel.fromJson(_result.data!);
     return value;
   }

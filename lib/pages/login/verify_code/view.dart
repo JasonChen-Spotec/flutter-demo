@@ -97,7 +97,7 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
                   SizedBox(height: Pt.pt20),
                   Container(
                     child: Text(
-                      _viewProvider.verityCode ? '' : '验证码错误',
+                      _viewProvider.isVerityCode ? '' : '验证码错误',
                       style: TextStyle(
                           color: Color(0xffF41111), fontSize: Pt.pt14),
                     ),
@@ -108,7 +108,7 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
                         ? Container(
                             height: Pt.pt48,
                             child: CountTimer(
-                              5,
+                              60,
                               timerBuilder: (context,
                                   {String? day,
                                   String? hour,
@@ -130,7 +130,7 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
                               },
                             ),
                           )
-                        : !context.watch<ViewCtrl>().codeInputOver
+                        : !_viewProvider.codeInputOver
                             ? LoginBtn(
                                 '重新发送',
                                 color:

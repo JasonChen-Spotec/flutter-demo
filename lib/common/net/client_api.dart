@@ -9,18 +9,19 @@ part 'client_api.g.dart';
 abstract class ClientApi {
   factory ClientApi(Dio dio, {String baseUrl}) = _ClientApi;
 
-  ///获取用户列表
-  @POST("/user/product/list")
-  Future<ServicesModel> getInviteList(
-    @Field() int pageNum,
-    @Field() int pageSize,
-  );
-
   ///发送短信
   @POST("/sms/send")
-  Future<ServicesModel> sendSms(
+  Future<dynamic> sendSms(
     @Field() String phone,
     @Field() String gbcode,
     @Field() String businessType,
+  );
+
+  ///发送短信
+  @POST("/login")
+  Future<ServicesModel> login(
+    @Field() String phone,
+    @Field() String gbcode,
+    @Field() String smsCode,
   );
 }

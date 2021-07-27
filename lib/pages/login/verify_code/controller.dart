@@ -8,7 +8,9 @@ class ViewCtrl with ChangeNotifier {
 
   bool codeIsSending = false;
   bool codeInputOver = false;
-  bool verityCode = true;
+  bool isVerityCode = true;
+  String verityCode = '';
+  String inputCode = '';
 
   Map<String, dynamic> pageArgs = {'phone': ''};
 
@@ -19,12 +21,9 @@ class ViewCtrl with ChangeNotifier {
 
   sendCode() async {
     codeIsSending = true;
-    var sendSms2 = netClient?.sendSms;
-    log(sendSms2.toString());
     var res = await netClient?.sendSms(
         pageArgs['phone']!, pageArgs['area']!, 'fastlogin');
-
-    log(res.toString());
+    verityCode = res['data'];
     notifyListeners();
   }
 
@@ -35,10 +34,22 @@ class ViewCtrl with ChangeNotifier {
 
   codeInputChange(String val) {
     if (val.length == 4) {
+      codeIsSending = false;
       codeInputOver = true;
+      inputCode = val;
       notifyListeners();
     }
   }
 
-  login() {}
+  login() async {
+    if (inputCode != verityCode) {
+      isVerityCode = false;
+      notifyListeners();
+      return;
+    }
+    isVerityCode = true;
+    notifyListeners();
+    var res = await netClient?.login(
+        pageArgs['phone']!, pageArgs['area']!, inputCode);
+  }
 }
