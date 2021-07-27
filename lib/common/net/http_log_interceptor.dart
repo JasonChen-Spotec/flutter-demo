@@ -11,9 +11,7 @@ class HttpLogInterceptor extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    log('BEGIN REQUEST');
-    l.d(TAG, '################# BEGIN REQUEST #####################\n',
-        saveFile: false);
+    log('################# BEGIN REQUEST #####################\n');
     l.d(TAG,
         'method:${options.method}  path:${options.path.toString()} url:${options.uri.toString()}\n',
         saveFile: false);
@@ -27,28 +25,28 @@ class HttpLogInterceptor extends InterceptorsWrapper {
           saveFile: false);
     }
     l.d(TAG, 'header:${options.headers.toString()}\n', saveFile: false);
-    l.d(TAG, '################# END REQUEST #####################\n',
-        saveFile: false);
+    log('################# END REQUEST #####################\n');
+
+    return handler.next(options);
   }
 
   @override
   onResponse(Response response, ResponseInterceptorHandler handler) {
-    l.d(TAG, '################# BEGIN RESPONSE #####################\n',
-        saveFile: false);
+    log('################# BEGIN RESPONSE #####################\n');
     l.d(TAG,
         'url:${response.requestOptions.uri}  path:${response.requestOptions.path}\n',
         saveFile: false);
     if (Config.DEBUG)
       l.d(TAG, 'begin resp: ${response.toString()}\n', saveFile: false);
-    l.d(TAG, '################# END RESPONSE #####################\n',
-        saveFile: false);
+    log('################# END RESPONSE #####################\n');
+    return handler.next(response);
   }
 
   // @override
-  // onError(DioError err) async {
+  // onError(DioError e, handler) async {
   //   l.e(TAG,
-  //       'logIntercepter()... onError...url:${err.request.uri.toString()}...path:${err.request.path} err:${err.toString()}',
+  //       'logIntercepter()... onError...url:${e.request.uri.toString()}...path:${e.request.path} err:${err.toString()}',
   //       saveFile: true);
-  //   return Future.value(err);
+  //   return handler.next(e);
   // }
 }

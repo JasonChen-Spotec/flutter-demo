@@ -24,7 +24,7 @@ class HttpHeaderInterceptor extends InterceptorsWrapper {
     options.headers["api_version"] = "1.0.0";
     options.headers["device"] = Platform.operatingSystem;
 
-    return Future.value(options);
+    return handler.next(options);
   }
 
   // @override

@@ -20,21 +20,17 @@ final netManager = NetManager();
 final netClient = netManager.client;
 
 class NetManager {
-  late Dio _clientDio;
-  // Dio _bankDio;
   static bool _inited = false;
-  late ClientApi client;
-  // BankApi bankApi;
+  ClientApi? client;
+  Dio? clientDio;
   init(String baseUrl) {
-    _clientDio = createDio(
-        options:
-            BaseOptions(connectTimeout: CONNECT_TIME_OUT, baseUrl: baseUrl),
-        mainThread: false);
-    _clientDio.interceptors.add(HttpHeaderInterceptor());
-    _clientDio.interceptors.add(HttpLogInterceptor());
-    _clientDio.interceptors.add(HttpRespInterceptor());
+    clientDio =
+        Dio(BaseOptions(connectTimeout: CONNECT_TIME_OUT, baseUrl: baseUrl));
+    clientDio?.interceptors.add(HttpHeaderInterceptor());
+    clientDio?.interceptors.add(HttpLogInterceptor());
+    clientDio?.interceptors.add(HttpRespInterceptor());
     _inited = true;
-    client = ClientApi(_clientDio);
+    client = ClientApi(clientDio!);
     // bankApi = BankApi(_bankDio);
   }
 

@@ -17,7 +17,8 @@ class HttpRespInterceptor extends InterceptorsWrapper {
   @override
   Future onResponse(
       Response response, ResponseInterceptorHandler handler) async {
-    return handleResponse(response);
+    handleResponse(response);
+    handler.next(response);
   }
 
   @override
@@ -25,7 +26,7 @@ class HttpRespInterceptor extends InterceptorsWrapper {
     l.e("resp_interceptor",
         'onError()...path:${err.requestOptions.path} url:${err.requestOptions.uri.toString()} err:${err.toString()}',
         saveFile: true);
-    return Future.value(err);
+    return handler.next(err);
   }
 
   static Future<dynamic> handleResponse(Response response) async {
@@ -42,7 +43,7 @@ class HttpRespInterceptor extends InterceptorsWrapper {
       return Future.error(ApiException(Code.PARSE_DATE_ERROR, '网络出错了'));
     }
 
-    netManager.setServerTime(baseResp.time!);
+    // netManager.setServerTime('');
     int code = baseResp.code;
     //业务层判断
     if (code == Code.SUCCESS) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  static const DEBUG = bool.fromEnvironment("dart.vm.product");
+  static const DEBUG = !bool.fromEnvironment("dart.vm.product");
   static const PROXY = false;
   static const proxyUrl = '';
   // 打开cdn源站 避免访问平凡无法测试的情况

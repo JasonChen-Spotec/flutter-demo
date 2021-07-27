@@ -19,9 +19,11 @@ class ViewCtrl with ChangeNotifier {
 
   sendCode() async {
     codeIsSending = true;
-    log(pageArgs.toString());
-    var res = await netClient.sendSms(
+    var sendSms2 = netClient?.sendSms;
+    log(sendSms2.toString());
+    var res = await netClient?.sendSms(
         pageArgs['phone']!, pageArgs['area']!, 'fastlogin');
+
     log(res.toString());
     notifyListeners();
   }
