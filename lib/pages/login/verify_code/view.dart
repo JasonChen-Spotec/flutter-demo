@@ -72,6 +72,7 @@ class __VerifyCodePageState extends State<_VerifyCodePage> {
                   Container(
                       margin: EdgeInsets.only(top: Pt.pt40),
                       child: PinCodeTextField(
+                        autoFocus: true,
                         length: 4,
                         obscureText: false,
                         animationType: AnimationType.fade,

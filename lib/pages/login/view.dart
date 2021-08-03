@@ -62,6 +62,7 @@ class _LoginPage extends StatelessWidget {
                       ),
                     )),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
@@ -136,6 +137,37 @@ class _LoginPage extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class Test extends StatefulWidget {
+  const Test({Key? key}) : super(key: key);
+
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  late int count;
+
+  @override
+  void initState() {
+    count = 0;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          count += 1;
+        });
+      },
+      child: Container(
+        child: Text('123'),
       ),
     );
   }

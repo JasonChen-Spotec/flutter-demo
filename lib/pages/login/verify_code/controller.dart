@@ -1,7 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:yyba_app/common/local_router/jump_router.dart';
+import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/common/net/net_manager.dart';
+import 'package:yyba_app/utils/app_util.dart';
+import 'package:yyba_app/utils/toast_util.dart';
 
 class ViewCtrl with ChangeNotifier {
   TextEditingController verityCodeController = TextEditingController();
@@ -21,8 +25,8 @@ class ViewCtrl with ChangeNotifier {
 
   sendCode() async {
     codeIsSending = true;
-    var res = await netClient?.sendSms(
-        pageArgs['phone']!, pageArgs['area']!, 'fastlogin');
+    var res = await netClient?.sendSms(pageArgs['phone']!,
+        pageArgs['area']!.toString().substring(1), 'fastlogin');
     verityCode = res['data'];
     notifyListeners();
   }
@@ -49,7 +53,18 @@ class ViewCtrl with ChangeNotifier {
     }
     isVerityCode = true;
     notifyListeners();
+
+    var deviceInfo = await getDeviceDetails();
     var res = await netClient?.login(
-        pageArgs['phone']!, pageArgs['area']!, inputCode);
+        pageArgs['phone']!,
+        pageArgs['area']!.toString().substring(1),
+        inputCode.toString(),
+        deviceInfo['deviceType'].toString());
+
+    netManager.setToken(res['token']);
+
+    showToast('登陆成功！');
+
+    RouterCtrl.popTo(PAGE_HOME);
   }
 }

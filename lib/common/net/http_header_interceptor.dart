@@ -10,8 +10,8 @@ class HttpHeaderInterceptor extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    var token = await netManager.getToken();
-    options.headers["Authorization"] = token;
+    // var token = await netManager.getToken();
+    // options.headers["Authorization"] = token;
     // l.d('http_log', 'token:$token');
     if (options.method == "GET") {
       options.headers["Content-Type"] = "application/x-www-form-urlencoded";

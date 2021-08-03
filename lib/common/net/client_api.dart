@@ -17,11 +17,16 @@ abstract class ClientApi {
     @Field() String businessType,
   );
 
-  ///发送短信
+  ///登陆
   @POST("/login")
-  Future<ServicesModel> login(
+  Future<dynamic> login(
     @Field() String phone,
     @Field() String gbcode,
     @Field() String smsCode,
+    @Field() String deviceType,
   );
+
+  ///登陆
+  @POST("​/api​/Home​/touchResourceUser")
+  Future<dynamic> homeRes();
 }

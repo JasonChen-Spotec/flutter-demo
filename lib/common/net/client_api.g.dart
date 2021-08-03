@@ -32,17 +32,35 @@ class _ClientApi implements ClientApi {
   }
 
   @override
-  Future<ServicesModel> login(phone, gbcode, smsCode) async {
+  Future<dynamic> login(phone, gbcode, smsCode, deviceType) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _data = {'phone': phone, 'gbcode': gbcode, 'smsCode': smsCode};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ServicesModel>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/login',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ServicesModel.fromJson(_result.data!);
+    final _data = {
+      'phone': phone,
+      'gbcode': gbcode,
+      'smsCode': smsCode,
+      'deviceType': deviceType
+    };
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/login',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<dynamic> homeRes() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '​/api​/Home​/touchResourceUser',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
     return value;
   }
 

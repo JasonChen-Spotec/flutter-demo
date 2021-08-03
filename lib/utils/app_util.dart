@@ -47,6 +47,7 @@ Future<Map<String, dynamic>> getDeviceDetails() async {
   }
 
   return {
+    'deviceType': Platform.isIOS ? 'ios' : 'andriod',
     'deviceName': deviceName,
     'deviceVersion': deviceVersion,
     'uuid': uuid

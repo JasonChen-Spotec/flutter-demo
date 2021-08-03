@@ -16,8 +16,9 @@ class Address {
   static String baseHost = '';
 
   /// 基本的path
-  static String baseApiPath =
-      Config.DEBUG ? "http://39.101.199.96:9090" : "http://39.101.199.96:9090";
+  static String baseApiPath = Config.DEBUG
+      ? "https://api-resource.youyuanba.cn"
+      : "https://api-accounting.youyuanba.cn";
 
   ///h5地址
   static String h5Url = '';
