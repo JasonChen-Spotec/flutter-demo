@@ -51,13 +51,28 @@ class _ClientApi implements ClientApi {
   }
 
   @override
-  Future<dynamic> homeRes() async {
+  Future<dynamic> resourceType({parentId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'parent_id': parentId};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/api/resourceType',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<dynamic> homeResRecommend() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-            .compose(_dio.options, '​/api​/Home​/touchResourceUser',
+            .compose(_dio.options, 'api/v1/UserResourceRecommend/GetRecommends',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;

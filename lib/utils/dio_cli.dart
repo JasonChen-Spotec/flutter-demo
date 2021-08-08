@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:yyba_app/common/config/config.dart';
-import 'package:yyba_app/utils/text_util.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 

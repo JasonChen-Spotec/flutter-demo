@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:yyba_app/model/services_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 part 'client_api.g.dart';
@@ -26,7 +23,11 @@ abstract class ClientApi {
     @Field() String deviceType,
   );
 
-  ///登陆
-  @POST("​/api​/Home​/touchResourceUser")
-  Future<dynamic> homeRes();
+  ///资源类型
+  @GET("/api/resourceType")
+  Future<dynamic> resourceType({@Query('parent_id') String? parentId});
+
+  ///首页推荐
+  @POST("api/v1/UserResourceRecommend/GetRecommends")
+  Future<dynamic> homeResRecommend();
 }

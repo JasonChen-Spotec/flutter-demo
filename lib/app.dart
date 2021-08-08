@@ -1,3 +1,4 @@
+import 'package:yyba_app/pages/home/view.dart';
 import 'package:yyba_app/pages/splash/view.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/utils/log.dart';
@@ -73,7 +74,7 @@ class _InitedAppState extends State<InitedApp>
 
         debugShowCheckedModeBanner: true,
         //关掉模拟器右上角debug图标
-        home: Splash(),
+        home: HomePage(),
         navigatorObservers: [CustomRouteObserver()],
         routes: routerMap,
         onGenerateRoute: (RouteSettings settings) {

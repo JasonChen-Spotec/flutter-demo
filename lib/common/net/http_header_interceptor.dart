@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'net_manager.dart';
 
 /// 请求header拦截器
 /// 主要是为每个请求添加header

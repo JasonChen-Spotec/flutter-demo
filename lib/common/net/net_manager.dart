@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:yyba_app/common/config/config.dart';
 import 'package:yyba_app/utils/app_util.dart';
-import 'package:yyba_app/utils/dio_cli.dart';
 import 'package:yyba_app/utils/light_model.dart';
 import 'package:yyba_app/utils/text_util.dart';
 import 'package:dio/dio.dart';

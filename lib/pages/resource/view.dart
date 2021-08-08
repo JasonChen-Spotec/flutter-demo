@@ -1,20 +1,33 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:yyba_app/common/local_router/jump_router.dart';
 import 'package:yyba_app/common/local_router/router_map.dart';
+import 'package:yyba_app/model/res_type.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/widgets/carousel/carousel.dart';
 import 'package:yyba_app/widgets/common/cached_network_image.dart';
+import 'package:yyba_app/widgets/common/provider_view.dart';
 import 'package:yyba_app/widgets/items/reource_item.dart';
 import 'package:yyba_app/widgets/tab_bar/custom_tab_bar.dart';
 
-class ResourcePage extends StatelessWidget {
-  const ResourcePage({Key? key}) : super(key: key);
+import 'controller.dart';
+
+class ResourcePage extends ProviderView<ViewCtrl> {
+  ResourcePage({Key? key}) : super(key: key, controller: ViewCtrl());
 
   @override
-  Widget build(BuildContext context) {
+  _ResourcePage createState() => _ResourcePage();
+}
+
+class _ResourcePage extends ProviderViewState<ResourcePage>
+    with BaseControllerMixin {
+  @override
+  Widget body(BuildContext context) {
     return SafeArea(
       bottom: false,
       child: Container(
@@ -82,7 +95,9 @@ class ResourcePage extends StatelessWidget {
                         spacing: Pt.pt40,
                         runAlignment: WrapAlignment.spaceBetween,
                         alignment: WrapAlignment.spaceAround,
-                        children: List.generate(8, (index) {
+                        children: List.generate(
+                            widget.controller.resTypes.length, (index) {
+                          ResType item = widget.controller.resTypes[index];
                           return GestureDetector(
                             onTap: () {
                               RouterCtrl.push(PAGE_RESOURCE_SECOND);
@@ -90,14 +105,17 @@ class ResourcePage extends StatelessWidget {
                             child: Container(
                               child: Column(
                                 children: [
-                                  SvgPicture.asset(
-                                    AssetsSvg.IC_HULIANWANG,
+                                  SvgPicture.network(
+                                    item.icon != null
+                                        ? item.icon!
+                                        : 'https://yyb-pub-1.oss-cn-beijing.aliyuncs.com/互联网_RD1ALjEpMYsdN3rVozVtZ.svg',
                                     width: Pt.pt28,
                                     height: Pt.pt28,
+                                    color: AppColors.active,
                                   ),
                                   SizedBox(height: Pt.pt4),
                                   Text(
-                                    '互联网',
+                                    item.name!,
                                     style: TextStyle(fontSize: Pt.pt13),
                                   )
                                 ],

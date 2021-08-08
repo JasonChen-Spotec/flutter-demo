@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:developer';
 
+import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:yyba_app/utils/log.dart';
 import 'package:yyba_app/utils/text_util.dart';
 import 'package:yyba_app/utils/toast_util.dart';
@@ -8,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'api_exception.dart';
 import 'base_resp_bean.dart';
 import 'code.dart';
-import 'net_manager.dart';
 
 /// 响应拦截器=>返回数据转换
 class HttpRespInterceptor extends InterceptorsWrapper {
@@ -34,15 +35,15 @@ class HttpRespInterceptor extends InterceptorsWrapper {
       return Future.error(
           ApiException(response.statusCode, "statusCode is not 200"));
     }
-    BaseRespBean baseResp;
+
+    return Future.value(response.data);
+    BaseRespBean baseResp = BaseRespBean(0);
+    log(response.toString());
     if (response.data is Map) {
       baseResp = BaseRespBean.fromJson(response.data);
     } else if (response.data is String) {
       baseResp = BaseRespBean.fromJson(json.decode(response.data));
-    } else {
-      return Future.error(ApiException(Code.PARSE_DATE_ERROR, '网络出错了'));
     }
-
     // netManager.setServerTime('');
     int code = baseResp.code;
     //业务层判断
@@ -70,10 +71,6 @@ class HttpRespInterceptor extends InterceptorsWrapper {
     if (code != Code.SUCCESS) {
       if (TextUtil.isEmpty(baseResp.tip!)) baseResp.tip = "服务器错误";
       showToast("$code:${baseResp.tip}");
-    } else {
-      // if (TextUtil.isNotEmpty(baseResp.tip)) {
-      //   showToast(msg: baseResp.tip);
-      // }
     }
 
     if (code != Code.SUCCESS) {
