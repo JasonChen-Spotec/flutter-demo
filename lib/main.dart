@@ -23,14 +23,24 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       ErrorWidget.builder = (FlutterErrorDetails details) {
         Zone.current.handleUncaughtError(details.exception, (details.stack)!);
-        return Container(
-          color: Colors.transparent,
+        return Material(
+          child: Container(
+            color: Colors.red,
+            child: Center(
+              child: Container(
+                child: Text(
+                  'error: ${details.exception}',
+                  style: TextStyle(fontSize: 24, color: Colors.yellow[300]),
+                ),
+              ),
+            ),
+          ),
         );
       };
       startApp();
     },
     (Object obj, StackTrace stack) {
-      //添加崩溃日志保存文件
+      //TODO: @lvzhiyi 上报错误日志 添加崩溃日志保存文件
       l.e('ERROR', 'onError happend ...stack:$stack  obj: $obj',
           saveFile: false);
       // l.writeCrash(obj, stackTrace: stack);

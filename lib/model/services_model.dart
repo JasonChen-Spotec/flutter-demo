@@ -14,11 +14,11 @@ class ServicesModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['faq'] = this.faq;
-    data['endpoint'] = this.sign;
-    data['check'] = this.check;
-    data['isVoiceActive'] = this.isVoiceActive;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['faq'] = faq;
+    data['endpoint'] = sign;
+    data['check'] = check;
+    data['isVoiceActive'] = isVoiceActive;
     return data;
   }
 }

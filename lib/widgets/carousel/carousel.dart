@@ -57,9 +57,9 @@ class Carousel extends StatelessWidget {
           iconNext: null,
         ),
         onTap: (index) {
-          this.tapHandle!(index);
+          tapHandle!(index);
         },
-        autoplay: carouseList.length > 0,
+        autoplay: carouseList.isNotEmpty,
       ),
     );
   }

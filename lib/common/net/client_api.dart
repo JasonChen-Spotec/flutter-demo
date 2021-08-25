@@ -24,10 +24,14 @@ abstract class ClientApi {
   );
 
   ///资源类型
-  @GET("/api/resourceType")
+  @GET("/api/v1/UserResourceResourceType/GetList")
   Future<dynamic> resourceType({@Query('parent_id') String? parentId});
 
   ///首页推荐
-  @POST("api/v1/UserResourceRecommend/GetRecommends")
-  Future<dynamic> homeResRecommend();
+  @POST("/api/v1/UserResourceRecommend/GetPaginatedRecommends")
+  Future<dynamic> resRecommend({
+    @Field('type_l1_id') String? l1Id,
+    @Field('type_l2_id') String? l2Id,
+    @Field('tags') List? tags,
+  });
 }

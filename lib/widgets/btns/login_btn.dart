@@ -17,8 +17,8 @@ class LoginBtn extends StatelessWidget {
     this.color = AppColors.active,
     this.textColor = Colors.white,
     this.onTap,
-  })  : width = width == null ? Pt.pt310 : width,
-        height = height == null ? Pt.pt48 : height;
+  })  : width = width ?? Pt.pt310,
+        height = height ?? Pt.pt48;
 
   @override
   Widget build(BuildContext context) {

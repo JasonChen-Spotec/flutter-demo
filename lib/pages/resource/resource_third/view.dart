@@ -1,39 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/widgets/app_bars/custom_app_bar.dart';
 import 'package:yyba_app/widgets/common/keep_alive.dart';
+import 'package:yyba_app/widgets/common/provider_view.dart';
 import 'package:yyba_app/widgets/common/pull_refresh.dart';
+import 'package:yyba_app/widgets/hooks/use_load_list.dart';
 import 'package:yyba_app/widgets/items/reource_item.dart';
 import 'package:yyba_app/widgets/tab_bar/custom_tab_bar.dart';
 
 import './controller.dart';
 
-class ResourceThirdPage extends StatelessWidget {
-  const ResourceThirdPage({Key? key}) : super(key: key);
-
+class ResourceThirdPage extends ProviderView<ViewCtrl> {
+  ResourceThirdPage({Key? key}) : super(key: key, controller: ViewCtrl());
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ViewCtrl>.value(
-      value: ViewCtrl(),
-      child: _ResourceThirdPage(),
-    );
-  }
+  _ResourceThirdPage createState() => _ResourceThirdPage();
 }
 
-class _ResourceThirdPage extends StatefulWidget {
-  const _ResourceThirdPage({Key? key}) : super(key: key);
-
+class _ResourceThirdPage extends ProviderViewState<ResourceThirdPage>
+    with BaseControllerMixin<ResourceThirdPage> {
   @override
-  __ResourceThirdPageState createState() => __ResourceThirdPageState();
-}
-
-class __ResourceThirdPageState extends State<_ResourceThirdPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget body(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: Column(
@@ -57,12 +47,13 @@ class __ResourceThirdPageState extends State<_ResourceThirdPage> {
               child: CustomScrollTabBarView(
                 backgroundColor: Colors.white,
                 padding: EdgeInsets.only(left: Pt.pt16, bottom: Pt.pt10),
-                tabs: ['综合', 'VIP', '时间', '价格'],
+                tabs: widget.controller.tabList,
+                onTabChange: (int index) {
+                  widget.controller.onTabChange(index);
+                },
                 tabViewBuilder: (BuildContext _, int index) {
-                  return ChangeNotifierProvider<ViewCtrl>.value(
-                    value: ViewCtrl(),
-                    child: keepAliveClientWrapper(_PageListView(index: index)),
-                  );
+                  return keepAliveClientWrapper(_PageListView(
+                      index: index, controller: widget.controller));
                 },
               ),
             ),
@@ -73,10 +64,12 @@ class __ResourceThirdPageState extends State<_ResourceThirdPage> {
   }
 }
 
-class _PageListView extends StatefulWidget {
+class _PageListView extends StatefulHookWidget {
   final int index;
+  final ViewCtrl controller;
 
-  const _PageListView({Key? key, this.index = 0}) : super(key: key);
+  const _PageListView({Key? key, this.index = 0, required this.controller})
+      : super(key: key);
 
   @override
   __PageListViewState createState() => __PageListViewState();
@@ -85,19 +78,20 @@ class _PageListView extends StatefulWidget {
 class __PageListViewState extends State<_PageListView> {
   @override
   Widget build(BuildContext context) {
-    ViewCtrl _viewProvider = Provider.of<ViewCtrl>(context);
+    final LoadListHookRes listControl =
+        useLoadList(context, widget.controller.getList);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: Pt.pt16),
       child: pullRefresh(
-        refreshController: _viewProvider.refreshController,
-        onLoading: () => _viewProvider.onLoading(widget.index),
-        onRefresh: () => _viewProvider.onRefresh(widget.index),
+        refreshController: widget.controller.refreshController,
+        onLoading: () => listControl.onLoading!(),
+        onRefresh: () => listControl.onRefresh!(),
         child: ListView.builder(
           physics: ClampingScrollPhysics(),
           padding: EdgeInsets.only(top: Pt.pt16),
-          itemCount: 20,
+          itemCount: listControl.resList.length,
           itemBuilder: (__, int ii) {
-            return reourceItem('item');
+            return reourceItem(listControl.resList[ii]);
           },
         ),
       ),

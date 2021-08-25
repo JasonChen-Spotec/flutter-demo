@@ -1,16 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
+
+// class TestProvider<T extends ViewController> extends StatefulWidget {
+//   final T controller;
+//   final Widget child;
+//   const TestProvider({Key? key, required this.controller, required this.child})
+//       : super(key: key);
+
+//   @override
+//   _TestState createState() => _TestState<T>();
+// }
+
+// class _TestState<T> extends State<TestProvider> {
+//   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+//       var arg = ModalRoute.of(context)!.settings.arguments;
+//       widget.controller.initPage(arg ?? {});
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ChangeNotifierProvider.value(
+//       value: widget.controller,
+//       child: widget.child,
+//     );
+//   }
+// }
 
 abstract class ViewController extends ChangeNotifier {
   Map<String, dynamic> pageArgs = {};
 
   initPage(args) {
-    pageArgs = new Map<String, dynamic>.from(args);
+    pageArgs = Map<String, dynamic>.from(args);
     notifyListeners();
   }
 }
 
-abstract class ProviderView<T extends ViewController> extends StatefulWidget {
+abstract class ProviderView<T extends ViewController>
+    extends StatefulHookWidget {
   final T controller;
   ProviderView({Key? key, required this.controller}) : super(key: key);
 }
@@ -31,9 +64,12 @@ mixin BaseControllerMixin<T extends ProviderView> on ProviderViewState<T> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
+    return ChangeNotifierProvider<ViewController>.value(
       value: widget.controller,
-      child: body(context),
+      child: Builder(builder: (context) {
+        Provider.of<ViewController>(context);
+        return body(context);
+      }),
     );
   }
 

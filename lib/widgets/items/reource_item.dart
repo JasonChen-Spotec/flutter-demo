@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:yyba_app/common/local_router/jump_router.dart';
 import 'package:yyba_app/common/local_router/router_map.dart';
+import 'package:yyba_app/model/res.dart';
 import 'package:yyba_app/static/svg.dart';
 import 'package:yyba_app/utils/pt.dart';
 import 'package:yyba_app/widgets/common/cached_network_image.dart';
@@ -13,11 +14,11 @@ class _CtrlStatic {
   _CtrlStatic(this.icon, this.nunVal);
 }
 
-Widget reourceItem(dynamic item) {
+Widget reourceItem(Res item) {
   final List<_CtrlStatic> ctrlStatic = [
-    _CtrlStatic(AssetsSvg.IC_LIULAN, 12),
-    _CtrlStatic(AssetsSvg.IC_XIAZAILIANG, 12),
-    _CtrlStatic(AssetsSvg.IC_SHOUCANG, 12),
+    _CtrlStatic(AssetsSvg.IC_LIULAN, item.viewed_count ?? 0),
+    _CtrlStatic(AssetsSvg.IC_XIAZAILIANG, item.bought_count ?? 0),
+    _CtrlStatic(AssetsSvg.IC_SHOUCANG, item.favorite_count ?? 0),
   ];
 
   return GestureDetector(
@@ -33,7 +34,7 @@ Widget reourceItem(dynamic item) {
       child: Row(
         children: [
           netImage(
-            imageUrl: "http://via.placeholder.com/350x150",
+            imageUrl: item.cover ?? "http://via.placeholder.com/350x150",
             borderRadius: Pt.pt2,
             width: Pt.pt96,
             height: Pt.pt96,
@@ -46,11 +47,15 @@ Widget reourceItem(dynamic item) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '富爸爸穷爸爸的进阶版',
-                style: TextStyle(
-                  fontSize: Pt.pt16,
-                  fontWeight: FontWeight.w600,
+              Container(
+                width: Pt.pt190,
+                child: Text(
+                  item.name ?? '',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: Pt.pt16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               Row(children: [

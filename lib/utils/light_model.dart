@@ -20,7 +20,7 @@ class _LightModel {
   Future<String?> getString(String key) async {
     await init();
     if (TextUtil.isEmpty(key)) return null;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.getString(newKey);
   }
 
@@ -28,35 +28,35 @@ class _LightModel {
       [bool genNewKey = true]) async {
     await init();
     if (TextUtil.isEmpty(key)) return false;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.setString(newKey, value);
   }
 
   Future<int?> getInt(String key) async {
     await init();
     if (TextUtil.isEmpty(key)) return null;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.getInt(newKey);
   }
 
   Future<bool> setInt(String key, int value) async {
     await init();
     if (TextUtil.isEmpty(key)) return false;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.setInt(newKey, value);
   }
 
   Future<bool?> getBool(String key) async {
     await init();
     if (TextUtil.isEmpty(key)) return null;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.getBool(newKey);
   }
 
   Future<bool> setBool(String key, bool value) async {
     await init();
     if (TextUtil.isEmpty(key)) return false;
-    var newKey = '$key';
+    var newKey = key;
     return mmkv.setBool(newKey, value);
   }
 
@@ -64,11 +64,11 @@ class _LightModel {
       [bool genNewKey = true]) async {
     await init();
     if (TextUtil.isEmpty(key)) return null;
-    var newKey = '$key';
+    var newKey = key;
     var jsonS = await mmkv.getString(newKey);
-    if (TextUtil.isEmpty(jsonS))
+    if (TextUtil.isEmpty(jsonS)) {
       return <String>[];
-    else {
+    } else {
       return json.decode(jsonS)?.cast<String>();
     }
   }
@@ -78,10 +78,10 @@ class _LightModel {
       [bool genNewKey = true]) async {
     await init();
     if (TextUtil.isEmpty(key)) return false;
-    var newKey = '$key';
-    if (list.length == 0)
+    var newKey = key;
+    if (list.isEmpty) {
       return mmkv.setString(newKey, null);
-    else {
+    } else {
       var jsonS = json.encode(list);
       return mmkv.setString(newKey, jsonS);
     }

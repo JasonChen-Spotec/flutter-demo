@@ -19,9 +19,9 @@ class SwiperBuilder extends SwiperPlugin {
   const SwiperBuilder(
       {this.activeW,
       this.normalW,
-      this.size: 10.0,
-      this.activeSize: 10.0,
-      this.space: 3.0});
+      this.size = 10.0,
+      this.activeSize = 10.0,
+      this.space = 3.0});
 
   @override
   Widget build(BuildContext context, SwiperPluginConfig config) {
@@ -61,7 +61,7 @@ class SwiperBuilder extends SwiperPlugin {
   }
 }
 
-typedef Widget SwiperPaginationBuilder(
+typedef SwiperPaginationBuilder = Widget Function(
     BuildContext context, SwiperPluginConfig config);
 
 class SwiperCustomPagination extends SwiperPlugin {

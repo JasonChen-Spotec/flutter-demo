@@ -65,7 +65,7 @@ class TextUtil {
   }
 
   static bool isChinese(String str) {
-    RegExp reg = new RegExp(r"[\u4e00-\u9fa5]+");
+    RegExp reg = RegExp(r"[\u4e00-\u9fa5]+");
     return reg.hasMatch(str);
   }
 }

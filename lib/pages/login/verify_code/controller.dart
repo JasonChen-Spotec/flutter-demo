@@ -17,7 +17,7 @@ class ViewCtrl with ChangeNotifier {
   Map<String, dynamic> pageArgs = {'phone': ''};
 
   initPage(args) {
-    pageArgs = new Map<String, dynamic>.from(args);
+    pageArgs = Map<String, dynamic>.from(args);
     notifyListeners();
   }
 

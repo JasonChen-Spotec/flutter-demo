@@ -41,7 +41,7 @@ showPicker(
       backgroundColor: Colors.white,
       builder: (BuildContext context) {
         return StatefulBuilder(builder: (_, subSet) {
-          Picker picker = new Picker(
+          Picker picker = Picker(
               adapter:
                   PickerDataAdapter<String>(pickerdata: _itemStrList.toList()),
               itemExtent: Pt.pt46,

@@ -15,7 +15,7 @@ final _defaultOptions = BaseOptions(
 /// cur => http not http2后台暂时不支持
 /// [mainThread] 默认httpclient在主线程中
 Dio createDio({BaseOptions? options, bool mainThread = true}) {
-  if (null == options) options = _defaultOptions;
+  options ??= _defaultOptions;
   options.headers[HttpHeaders.acceptEncodingHeader] = "*";
   var dio = Dio(options);
 

@@ -1,25 +1,36 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:yyba_app/common/net/net_manager.dart';
+import 'package:yyba_app/model/res.dart';
+import 'package:yyba_app/widgets/common/provider_view.dart';
 
-class ViewCtrl with ChangeNotifier {
+class ViewCtrl extends ViewController {
   RefreshController refreshController = RefreshController(initialRefresh: true);
 
-  onRefresh(int index) {
-    Timer.periodic(Duration(seconds: 2), (timer) {
-      refreshController.refreshCompleted();
-    });
+  List<String> tabList = ['综合', 'VIP', '时间', '价格'];
+
+  ///资源列表
+  List<Res> resList = [];
+
+  ///
+  String currentTag = '综合';
+
+  onTabChange(int index) {
+    currentTag = tabList[index];
   }
 
-  onLoading(int index) {
-    Timer.periodic(Duration(seconds: 2), (timer) {
-      refreshController.loadComplete();
-    });
+  getList(args) async {
+    var _list = await netClient?.resRecommend(
+        tags: [currentTag],
+        l1Id: pageArgs['type_l1_id'],
+        l2Id: pageArgs['type_l2_id']);
+    List recommendList = _list['rows'];
+    resList = recommendList.map((e) => Res.fromJson(e)).toList();
+    // notifyListeners()
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  // onRefresh(int index) {
+  //   getList({});
+  // }
+
+  // onLoading(int index) {}
 }

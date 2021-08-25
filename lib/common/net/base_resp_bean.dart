@@ -33,14 +33,14 @@ class BaseRespBean<T> {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
     data['data'] = this.data;
-    data['tip'] = this.tip;
-    data['action'] = this.action;
-    data['msg'] = this.msg;
-    data['time'] = this.time;
-    data['hash'] = this.hash;
+    data['tip'] = tip;
+    data['action'] = action;
+    data['msg'] = msg;
+    data['time'] = time;
+    data['hash'] = hash;
     return data;
   }
 }

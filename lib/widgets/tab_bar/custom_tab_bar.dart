@@ -9,6 +9,7 @@ import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart'
 class CustomScrollTabBarView extends StatefulWidget {
   final List<String> tabs;
   final Widget Function(BuildContext, int) tabViewBuilder;
+  final void Function(int)? onTabChange;
   final Widget? otherChild;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
@@ -18,6 +19,7 @@ class CustomScrollTabBarView extends StatefulWidget {
       required this.tabs,
       required this.tabViewBuilder,
       this.otherChild,
+      this.onTabChange,
       this.backgroundColor = AppColors.backgroundColor,
       this.padding})
       : super(key: key);
@@ -34,6 +36,11 @@ class _CustomScrollTabBarViewState extends State<CustomScrollTabBarView>
   void initState() {
     super.initState();
     tabController = TabController(length: widget.tabs.length, vsync: this);
+    tabController.addListener(() {
+      if (widget.onTabChange != null && tabController.indexIsChanging) {
+        widget.onTabChange!(tabController.index);
+      }
+    });
   }
 
   @override

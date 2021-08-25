@@ -59,6 +59,8 @@ class __HomePageState extends State<_HomePage> {
     return Scaffold(
       body: Stack(children: [
         Container(
+          // color: Colors.red,
+          // decoration: BoxDecoration(),
           child: IndexedStack(
             children:
                 List.generate(itemList.length, (index) => itemList[index].page),

@@ -29,7 +29,7 @@ Future<Map<String, dynamic>> getDeviceDetails() async {
   String? deviceName;
   String? deviceVersion;
   String? uuid;
-  final DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   try {
     if (Platform.isAndroid) {
       var build = await deviceInfoPlugin.androidInfo;
@@ -58,7 +58,7 @@ Future<Map<String, dynamic>> getDeviceDetails() async {
 installApp(String filePath) async {
   //判断权限是否已有
   if (await Permission.storage.request().isGranted) {
-    DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
+    DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     deviceInfoPlugin.androidInfo.then((androidInfo) {
       // InstallPlugin.installApk(filePath, androidInfo.id);
     });
@@ -69,7 +69,7 @@ installApp(String filePath) async {
 Future<String> getChannel() async {
   String channel = "";
   if (Platform.isAndroid) {
-    const platform = const MethodChannel("com.yinse/device");
+    const platform = MethodChannel("com.yinse/device");
     try {
       channel = await platform.invokeMethod("getChannel");
     } on PlatformException {

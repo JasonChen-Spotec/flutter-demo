@@ -84,6 +84,7 @@ Future<bool> sortImports(File f) async {
     allLines.add('');
   }
 
+  // ignore: avoid_function_literals_in_foreach_calls
   lines.forEach((l) {
     if (allLines.isNotEmpty && allLines[allLines.length - 1] == '' && l == '') {
       return;
@@ -111,7 +112,7 @@ main() async {
   var isNumber = RegExp(r"^\d+$");
   var isUpper = RegExp(r"[A-Z]+");
   var errors = <String>[];
-  var assets = Map<String, Map<String, String>>();
+  var assets = <String, Map<String, String>>{};
 
   await bd.list(recursive: true, followLinks: false).forEach((fse) async {
     if (fse is! File) return;
@@ -149,7 +150,7 @@ main() async {
 
     var bundle = assets.putIfAbsent(
       bundleKey,
-      () => Map<String, String>(),
+      () => <String, String>{},
     );
 
     if (bundle.containsKey(assetKey)) {
@@ -161,7 +162,9 @@ main() async {
   });
 
   if (errors.isNotEmpty) {
-    errors.forEach((e) => print(e));
+    for (var e = 0; e < errors.length; e++) {
+      print(e);
+    }
     return;
   }
 

@@ -18,7 +18,7 @@ class Config {
   static const PAGE_SIZE = 10;
 
   static final GlobalKey<NavigatorState> navigatorKey =
-      new GlobalKey<NavigatorState>();
+      GlobalKey<NavigatorState>();
 
   /// 获取顶层BuildContext
   static BuildContext get appContext =>

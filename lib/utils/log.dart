@@ -53,7 +53,7 @@ class _Log {
   var printer = MyPrinter();
 
   _Log._() {
-    this._logger = Logger(
+    _logger = Logger(
       filter: ProductionFilter(),
       printer: printer,
     );

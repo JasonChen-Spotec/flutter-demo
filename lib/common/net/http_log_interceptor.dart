@@ -36,8 +36,9 @@ class HttpLogInterceptor extends InterceptorsWrapper {
     l.d(TAG,
         'url:${response.requestOptions.uri}  path:${response.requestOptions.path}\n',
         saveFile: false);
-    if (Config.DEBUG)
+    if (Config.DEBUG) {
       l.d(TAG, 'begin resp: ${response.toString()}\n', saveFile: false);
+    }
     log('################# END RESPONSE #####################\n');
     return handler.next(response);
   }

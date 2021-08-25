@@ -15,7 +15,7 @@ ResType _$ResTypeFromJson(Map<String, dynamic> json) {
     childrenCount: json['childrenCount'] as int?,
     resourceCount: json['resourceCount'] as int?,
     showResource: json['showResource'] as int?,
-    icon: json['icon'] as String,
+    icon: json['icon'] as String?,
     recommendResource: json['recommendResource'] as int?,
   )..order = json['order'] as int?;
 }

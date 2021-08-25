@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
-import 'package:yyba_app/common/local_router/jump_router.dart';
-import 'package:yyba_app/common/local_router/router_map.dart';
 import 'package:yyba_app/model/res_type.dart';
 import 'package:yyba_app/static/app_colors.dart';
 import 'package:yyba_app/static/svg.dart';
@@ -25,7 +20,7 @@ class ResourcePage extends ProviderView<ViewCtrl> {
 }
 
 class _ResourcePage extends ProviderViewState<ResourcePage>
-    with BaseControllerMixin {
+    with BaseControllerMixin<ResourcePage> {
   @override
   Widget body(BuildContext context) {
     return SafeArea(
@@ -100,7 +95,7 @@ class _ResourcePage extends ProviderViewState<ResourcePage>
                           ResType item = widget.controller.resTypes[index];
                           return GestureDetector(
                             onTap: () {
-                              RouterCtrl.push(PAGE_RESOURCE_SECOND);
+                              widget.controller.toSecondPage(item);
                             },
                             child: Container(
                               child: Column(
@@ -149,14 +144,17 @@ class _ResourcePage extends ProviderViewState<ResourcePage>
                   ],
                 ),
                 padding: EdgeInsets.only(bottom: Pt.pt10),
-                tabs: ['热门', '科技', '数据', '运营', '教育'],
+                tabs: widget.controller.recommendTabs,
+                onTabChange: (int index) {
+                  widget.controller.onTabChange(index);
+                },
                 tabViewBuilder: (BuildContext _, int index) {
                   return Container(
                     margin: EdgeInsets.only(top: Pt.pt2),
                     child: ListView.builder(
-                        itemCount: 20,
+                        itemCount: widget.controller.resList.length,
                         itemBuilder: (__, int ii) {
-                          return reourceItem('item');
+                          return reourceItem(widget.controller.resList[ii]);
                         }),
                   );
                 },
